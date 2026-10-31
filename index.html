@@ -27,8 +27,12 @@ a{color:var(--sea)}a:focus-visible{outline:2px solid var(--sea);outline-offset:2
 .btn{display:flex;flex-direction:column;gap:2px;text-decoration:none;background:var(--sea);color:#fff;border-radius:8px;padding:12px 16px}
 .btn b{font:700 18px var(--f-display)}.btn span{font-size:14px;opacity:.85}.btn:hover{filter:brightness(1.1)}
 .btn.alt{background:var(--surface);color:var(--sea);border:1px solid var(--sea)}
+.site-nav{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 15px var(--f-body);border-bottom:1px solid var(--line);padding-bottom:10px;margin-top:-12px}
+.site-nav a{text-decoration:none;color:var(--muted)}.site-nav a:hover{color:var(--ink)}
+.site-nav a[aria-current="page"]{color:var(--ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--bronze)}
 @media (max-width:480px){h1{font-size:30px}td.id{white-space:normal}}
 </style></head><body><main class="wrap">
+<nav class="site-nav" aria-label="Разделы"><a href="./" aria-current="page">Обзор</a><a href="difficulty.html">Сложность</a><a href="chronicle.html">Хроника античности</a></nav>
 <header><span class="ver">версия 2.20.3 · альфа</span><h1>Mare Nostrum</h1>
 <p class="lead">Мод для Civilization VII: историческая карта Средиземноморья и Древний мир — новые нации, лидеры, морская система, события и своя сложность. Каждая часть — отдельный мод, их можно включать по одному.</p></header>
 <div class="facts"><div class="fact"><b>30</b><span>модов в сборке</span></div><div class="fact"><b>15</b><span>новых наций</span></div><div class="fact"><b>20</b><span>держав с историческим стартом</span></div><div class="fact"><b>×8</b><span>самая медленная скорость (Марафон+++)</span></div></div>
@@ -44,6 +48,6 @@ a{color:var(--sea)}a:focus-visible{outline:2px solid var(--sea);outline-offset:2
 <li>Скопируй содержимое папки «Mare Nostrum 2.20.3» из архива в <code>~/Library/Application Support/Civilization VII/Mods/</code>. На Windows: <code>%LOCALAPPDATA%\Firaxis Games\Sid Meier's Civilization VII\Mods\</code></li>
 <li>В игре открой «Дополнения» и включи нужные моды.</li>
 <li>Новая игра → Древний мир → карта «Mare Nostrum: Древний мир».</li></ol></section>
-<section class="card"><h2>Ещё страницы</h2><ul><li><a href="difficulty.html">Настройки сложности: что делает каждая</a></li></ul></section>
+<section class="card"><h2>Ещё страницы</h2><ul><li><a href="difficulty.html">Настройки сложности: что делает каждая</a></li><li><a href="chronicle.html">Хроника античности: когда жила каждая нация и кого не сводить в одной партии</a></li></ul></section>
 <footer>Страница собирается из файлов проекта и обновляется вместе с модом.</footer>
 </main></body></html>

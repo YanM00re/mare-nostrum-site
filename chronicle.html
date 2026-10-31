@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Хроника античности — Mare Nostrum</title>
+<meta name="description" content="Хроника античности для модпака Mare Nostrum: нации, их подъём и падение, кто кого покорил, и какие нации не сводить в одной партии.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root{
+  --bg:#f3eee3; --surface:#fbf8f1; --surface-2:#efe8da; --ink:#2a241b; --ink-2:#5d5444; --ink-3:#8a8170;
+  --line:#d9cfbc; --line-2:#c7bba4; --accent:#9c3d26; --accent-ink:#fff; --gold:#a8812e;
+  --band-a:rgba(120,95,50,.045); --band-b:rgba(120,95,50,.10); --stub:rgba(120,95,50,.16);
+  --pill:rgba(251,248,241,.9); --ctx:#9b9282; --ctx-2:#c9c1b1;
+  --ok:#4f7a3a; --warn:#b07b22; --bad:#a5402d;
+  --r-nile:#b5822a; --r-meso:#2f5d9b; --r-anat:#7b3c6f; --r-hellas:#2a7774; --r-italia:#a8432a; --r-west:#5a7a2c; --r-steppe:#8a5a3c;
+  --shadow:0 10px 30px rgba(60,40,10,.16);
+  --lab:176px; --serif-h:"Cormorant Garamond","Cormorant","EB Garamond",Garamond,"Times New Roman",Georgia,serif;
+  --serif:"EB Garamond",Garamond,"Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14120e; --surface:#1c1914; --surface-2:#25211a; --ink:#ece4d2; --ink-2:#bdb29d; --ink-3:#8b826f;
+    --line:#352f25; --line-2:#4a4234; --accent:#e0805f; --accent-ink:#1a120c; --gold:#d6ad55;
+    --band-a:rgba(255,235,190,.025); --band-b:rgba(255,235,190,.06); --stub:rgba(255,235,190,.09);
+    --pill:rgba(28,25,20,.88); --ctx:#7e7666; --ctx-2:#4e483d;
+    --ok:#86b46a; --warn:#d8a650; --bad:#dd7a63;
+    --r-nile:#d9a94b; --r-meso:#6e98d8; --r-anat:#bb7cad; --r-hellas:#5fb3ad; --r-italia:#dd7a5e; --r-west:#97b662; --r-steppe:#c4946e;
+    --shadow:0 10px 30px rgba(0,0,0,.5); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14120e; --surface:#1c1914; --surface-2:#25211a; --ink:#ece4d2; --ink-2:#bdb29d; --ink-3:#8b826f;
+  --line:#352f25; --line-2:#4a4234; --accent:#e0805f; --accent-ink:#1a120c; --gold:#d6ad55;
+  --band-a:rgba(255,235,190,.025); --band-b:rgba(255,235,190,.06); --stub:rgba(255,235,190,.09);
+  --pill:rgba(28,25,20,.88); --ctx:#7e7666; --ctx-2:#4e483d;
+  --ok:#86b46a; --warn:#d8a650; --bad:#dd7a63;
+  --r-nile:#d9a94b; --r-meso:#6e98d8; --r-anat:#bb7cad; --r-hellas:#5fb3ad; --r-italia:#dd7a5e; --r-west:#97b662; --r-steppe:#c4946e;
+  --shadow:0 10px 30px rgba(0,0,0,.5); color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.5;overflow-x:hidden;-webkit-text-size-adjust:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 120px}
+h1,h2,h3{font-family:var(--serif-h);font-weight:600;letter-spacing:.01em;line-height:1.15;margin:0}
+h1{font-size:clamp(34px,6vw,54px);font-weight:700}
+h2{font-size:clamp(26px,3.6vw,34px);margin:44px 0 6px}
+h3{font-size:22px}
+p{margin:.4em 0}
+.kicker{font-variant:small-caps;letter-spacing:.14em;color:var(--accent);font-size:15px}
+.lede{color:var(--ink-2);max-width:62ch;margin-top:8px}
+.muted{color:var(--ink-3)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;letter-spacing:0}
+header.top{display:flex;gap:16px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}
+.meander{height:10px;margin:18px 0 6px;opacity:.55;background:
+  repeating-linear-gradient(90deg,var(--ink-3) 0 2px,transparent 2px 10px) top/100% 2px no-repeat,
+  repeating-linear-gradient(90deg,var(--ink-3) 0 2px,transparent 2px 10px) bottom/100% 2px no-repeat}
+button{font:inherit;color:inherit}
+.btn{border:1px solid var(--line-2);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 13px;font-size:15px;cursor:pointer;line-height:1.3}
+.btn:hover{border-color:var(--ink-3)}
+.btn[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.btn:focus-visible,.chip:focus-visible,.row:focus-visible,.cell:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:14px 0 10px}
+.seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.seg .lbl{font-size:14px;color:var(--ink-3);margin-right:2px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--ink-2);margin:6px 0 10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:22px;height:11px;border-radius:2px;display:inline-block;background:var(--c,var(--ink-3))}
+.sw.k-proto,.sw.k-foreign,.sw.k-remnant,.sw.k-core2{--c:var(--ink-2)}
+.lk{width:22px;height:0;border-top:2px solid var(--accent);display:inline-block}
+.lk.h{border-top-style:dashed}.lk.s{border-top:2px dotted var(--ink-3)}
+
+/* ---------- chart ---------- */
+.chart{position:relative;overflow:auto;max-height:min(76vh,980px);border:1px solid var(--line);border-radius:10px;background:var(--surface);-webkit-overflow-scrolling:touch}
+.inner{position:relative}
+.axis{position:sticky;top:0;z-index:6;display:flex;background:var(--surface);border-bottom:1px solid var(--line)}
+.corner{position:sticky;left:0;z-index:7;width:var(--lab);flex:none;background:var(--surface);border-right:1px solid var(--line);padding:6px 10px;font-size:13px;color:var(--ink-3);display:flex;flex-direction:column;justify-content:flex-end;line-height:1.25}
+.axisplot{position:relative;flex:none;height:56px}
+.eraname{position:absolute;top:4px;height:26px;padding:0 8px;font-family:var(--serif-h);font-weight:600;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-left:1px solid var(--line-2);display:flex;align-items:center;gap:6px;cursor:pointer}
+.eraname small{font-family:var(--serif);font-weight:400;font-size:12px;color:var(--ink-3)}
+.tick{position:absolute;bottom:4px;font-size:12px;color:var(--ink-3);transform:translateX(-50%);white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+.tick::before{content:"";position:absolute;left:50%;top:-6px;height:4px;border-left:1px solid var(--line-2)}
+.tick i{font-style:normal;font-size:10px}
+.body{position:relative}
+.bands{position:absolute;top:0;bottom:0;z-index:0;pointer-events:none}
+.band{position:absolute;top:0;bottom:0;border-left:1px solid var(--line)}
+.band.stub{background:var(--stub);background-image:repeating-linear-gradient(135deg,transparent 0 7px,var(--band-b) 7px 8px)}
+.gl{position:absolute;top:0;bottom:0;border-left:1px dotted var(--line)}
+svg.links{position:absolute;top:0;z-index:2;pointer-events:none;overflow:visible}
+.row{display:flex;position:relative;z-index:1;cursor:pointer;outline:none}
+.row + .row{border-top:1px solid color-mix(in srgb,var(--line) 55%,transparent)}
+.lab{position:sticky;left:0;z-index:4;width:var(--lab);flex:none;background:var(--surface);border-right:1px solid var(--line);padding:3px 10px;display:flex;flex-direction:column;justify-content:center;line-height:1.12;overflow:hidden}
+.lab b{font-weight:600;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lab .sub{font-size:11.5px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lab .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c);margin-right:6px;vertical-align:1px}
+.tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line-2);border-radius:3px;padding:0 3px;margin-left:5px;color:var(--ink-3);vertical-align:2px}
+.tag.mn{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 50%,transparent)}
+.track{position:relative;flex:none;height:34px}
+.row.ctx .track{height:24px}
+.row.ctx .lab b{font-weight:400;font-style:italic;font-size:14.5px;color:var(--ink-2)}
+.row.hdr{cursor:default}
+.row.hdr .lab{font-variant:small-caps;letter-spacing:.1em;font-size:13px;color:var(--ink-3);background:var(--surface-2)}
+.row.hdr .track{height:24px;background:color-mix(in srgb,var(--surface-2) 60%,transparent)}
+.ph{position:absolute;top:7px;height:20px;border-radius:2px;background:var(--c)}
+.row.ctx .ph{top:7px;height:10px;background:var(--ctx)}
+.ph.k-core2{background:color-mix(in srgb,var(--c) 68%,var(--surface))}
+.ph.k-foreign{background:repeating-linear-gradient(135deg,var(--c) 0 3px,color-mix(in srgb,var(--c) 25%,var(--surface)) 3px 7px)}
+.ph.k-proto{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--c) 50%,transparent) 0 2px,transparent 2px 6px);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 55%,transparent)}
+.ph.k-remnant{background:color-mix(in srgb,var(--c) 12%,transparent);border:1px dashed color-mix(in srgb,var(--c) 60%,transparent)}
+.row.ctx .ph.k-remnant{background:transparent;border-color:var(--ctx)}
+.pill{position:absolute;top:9px;height:16px;line-height:16px;padding:0 5px;font-size:12px;border-radius:3px;background:var(--pill);color:var(--ink);white-space:nowrap;pointer-events:none;font-variant-numeric:lining-nums;overflow:hidden}
+.endl{position:absolute;top:9px;line-height:16px;font-size:12px;color:var(--ink-2);white-space:nowrap;pointer-events:none;font-style:italic;background:var(--pill);padding:0 4px;border-radius:3px}
+.row.ctx .endl,.row.ctx .pill{top:3px}
+.row.ctx .pill{background:transparent;color:var(--ink-3);padding:0;font-size:11px}
+.ldr{position:absolute;bottom:2px;height:4px;min-width:4px;border-radius:2px;background:var(--gold);opacity:.95}
+.row.dim .track>*{opacity:.28}
+.row.rel .lab{background:color-mix(in srgb,var(--accent) 7%,var(--surface))}
+.row.sel .lab{background:color-mix(in srgb,var(--accent) 16%,var(--surface));box-shadow:inset 3px 0 0 var(--accent)}
+.row.sel .track{background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.row:hover:not(.hdr) .lab b{text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
+.hint{font-size:14px;color:var(--ink-3);margin-top:8px}
+
+/* ---------- panel ---------- */
+.panel{position:fixed;z-index:50;right:16px;bottom:16px;width:400px;max-height:min(78vh,760px);overflow:auto;background:var(--surface);border:1px solid var(--line-2);border-radius:12px;box-shadow:var(--shadow);padding:16px 18px 18px}
+.panel[hidden],.panel.away{display:none}
+.panel .x{position:absolute;top:8px;right:8px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface-2);cursor:pointer;font-size:20px;line-height:1}
+.panel h3{font-size:28px;padding-right:36px}
+.panel .meta{font-size:14px;color:var(--ink-3);margin:2px 0 8px}
+.panel dl{margin:8px 0 0;display:grid;grid-template-columns:1fr;gap:2px}
+.panel dt{font-variant:small-caps;letter-spacing:.08em;font-size:13px;color:var(--accent);margin-top:8px}
+.panel dd{margin:0;font-size:15.5px}
+.panel ul{margin:2px 0 0;padding-left:18px;font-size:15px}
+.panel li{margin:2px 0}
+.dates{font-size:19px;font-family:var(--serif-h);font-weight:600}
+.ev{display:flex;gap:8px;font-size:15px;padding:3px 0;border-bottom:1px dotted var(--line)}
+.ev .yr{flex:none;width:86px;color:var(--ink-3);font-variant-numeric:lining-nums}
+.ev .ar{font-weight:600}
+@media (max-width:899px){
+  .panel{left:0;right:0;bottom:0;width:auto;max-height:64vh;border-radius:14px 14px 0 0;border-bottom:none}
+}
+
+/* ---------- chips, cards ---------- */
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line-2);border-radius:999px;padding:2px 10px 2px 8px;font-size:14.5px;background:var(--surface);cursor:pointer;line-height:1.35;margin:2px 3px 2px 0;color:var(--ink)}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--c,var(--ctx))}
+.chip.on{background:color-mix(in srgb,var(--c) 18%,var(--surface));border-color:var(--c)}
+.chip small{color:var(--ink-3);font-size:12px}
+.chip.st{border-style:dashed}
+.chip.plain{cursor:default}
+.eras{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin-top:12px}
+@media (max-width:420px){.eras{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px 16px;min-width:0}
+.card .rng{color:var(--ink-3);font-size:15px}
+.card h4{font-family:var(--serif-h);font-size:17px;font-weight:600;margin:12px 0 4px;color:var(--ink-2);font-variant:small-caps;letter-spacing:.06em}
+.preset{border-top:1px dotted var(--line-2);padding-top:8px;margin-top:8px}
+.preset .pn{font-weight:600}
+.preset .pnote{font-size:14px;color:var(--ink-3)}
+.rule{font-size:15px;padding:6px 0;border-top:1px dotted var(--line)}
+.rule .vs{font-weight:600}
+.rule .x{color:var(--bad);font-weight:700;margin:0 4px}
+.rule.soft .x{color:var(--warn)}
+.rule .why{color:var(--ink-2);display:block;font-size:14.5px}
+.chains{display:grid;gap:8px;margin-top:10px}
+.chain{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:15.5px;line-height:1.9}
+.chain b{font-family:var(--serif-h);font-size:18px;margin-right:6px}
+.chain .y{color:var(--ink-3);font-size:13px}
+.chain .ar{color:var(--accent);margin:0 3px}
+.chain a{color:inherit;text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px;cursor:pointer}
+
+/* ---------- checker ---------- */
+.checker{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-top:12px}
+.res{margin-top:10px}
+.res .win{font-family:var(--serif-h);font-size:22px;font-weight:600}
+.res .item{font-size:15px;padding:4px 0;border-top:1px dotted var(--line)}
+.res .b{color:var(--bad);font-weight:600}.res .w{color:var(--warn);font-weight:600}.res .g{color:var(--ok);font-weight:600}
+.mxwrap{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:10px}
+.mx{border-collapse:collapse;font-size:12px}
+.mx th{font-weight:500;color:var(--ink-2);padding:2px;white-space:nowrap}
+.mx thead th{height:56px;vertical-align:bottom}
+.mx thead th span{display:inline-block;writing-mode:vertical-rl;transform:rotate(180deg)}
+.mx tbody th{text-align:right;padding-right:6px}
+.cell{width:22px;height:22px;border:1px solid var(--surface);border-radius:3px;cursor:pointer;padding:0;display:block}
+.cell.ok{background:color-mix(in srgb,var(--ok) 70%,var(--surface))}
+.cell.ext{background:color-mix(in srgb,var(--warn) 55%,var(--surface))}
+.cell.no{background:color-mix(in srgb,var(--bad) 22%,var(--surface))}
+.cell.self{background:var(--surface-2);cursor:default}
+.mxinfo{min-height:1.5em;font-size:15px;margin-top:8px}
+.foot{margin-top:48px;font-size:14px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:600px){
+  :root{--lab:118px}
+  body{font-size:16px}
+  .lab b{font-size:14px}
+  .lab .sub{display:none}
+  .tag{display:none}
+}
+.site-nav{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:16px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:18px}
+.site-nav a{text-decoration:none;color:var(--ink-3)}.site-nav a:hover{color:var(--ink)}
+.site-nav a[aria-current="page"]{color:var(--ink);font-weight:600;box-shadow:inset 0 -2px 0 var(--accent)}
+</style>
+</head><body>
+<div class="wrap">
+  <nav class="site-nav" aria-label="Разделы"><a href="./">Обзор</a><a href="difficulty.html">Сложность</a><a href="chronicle.html" aria-current="page">Хроника античности</a></nav>
+  <header class="top">
+    <div>
+      <div class="kicker">Mare Nostrum · модпак для Civilization VII</div>
+      <h1>Хроника античности</h1>
+      <p class="lede">От первых государств (ок. 3500 до н. э.) до конца Западной Римской империи (ок. 500 н. э.): когда возникла и когда пала каждая нация модпака и игры, кто кого покорил и какие нации не стоит сводить в одной партии.</p>
+    </div>
+    <button class="btn" id="themeBtn" type="button" aria-label="Тема оформления">Тема: авто</button>
+  </header>
+  <div class="meander" aria-hidden="true"></div>
+
+  <div class="toolbar">
+    <div class="seg" role="group" aria-label="Масштаб">
+      <span class="lbl">Масштаб</span>
+      <button class="btn" data-scale="era" aria-pressed="true" type="button">по эпохам</button>
+      <button class="btn" data-scale="lin" aria-pressed="false" type="button">линейный</button>
+    </div>
+    <div class="seg" role="group" aria-label="Порядок строк">
+      <span class="lbl">Порядок</span>
+      <button class="btn" data-sort="chrono" aria-pressed="true" type="button">по времени</button>
+      <button class="btn" data-sort="region" aria-pressed="false" type="button">по регионам</button>
+      <button class="btn" data-sort="group" aria-pressed="false" type="button">игра / мод</button>
+    </div>
+    <div class="seg" role="group" aria-label="Показать">
+      <span class="lbl">Показать</span>
+      <button class="btn" id="ctxBtn" aria-pressed="true" type="button">фоновые державы</button>
+      <button class="btn" id="allLinksBtn" aria-pressed="false" type="button">все связи</button>
+    </div>
+  </div>
+  <div class="seg" id="eraJump" aria-label="Перейти к эпохе"><span class="lbl">К эпохе</span></div>
+
+  <div class="legend" id="legend"></div>
+
+  <div class="chart" id="chart" tabindex="0" aria-label="Шкала времени, прокручивается по горизонтали">
+    <div class="inner" id="inner"></div>
+  </div>
+  <p class="hint">Нажмите на строку, чтобы открыть подробности и связи. В масштабе «по эпохам» у каждой эпохи своя ширина: бронзовый век сжат, эллинизм растянут. Жёлтая черта под полосой — годы правления лидера Mare Nostrum. «Ок.» и «~» — приблизительные даты.</p>
+
+  <h2>Эпохи и пресеты взаимоисключения</h2>
+  <p class="lede">Для каждой эпохи: кто исторически жив, два готовых состава партии и правила «не вместе». Красный ✕ — прямой анахронизм, жёлтый ✕ — допустимо с оговоркой.</p>
+  <div class="eras" id="eras"></div>
+
+  <h2>Цепочки преемства</h2>
+  <p class="lede">Кто кого сменил на одной земле. Год в скобках — переход власти. Имена кликабельны.</p>
+  <div class="chains" id="chains"></div>
+
+  <h2>Проверка состава партии</h2>
+  <p class="lede">Отметьте нации, которые хотите включить. Страница найдёт общее историческое окно и пары, которые не пересекались.</p>
+  <div class="checker">
+    <div id="pick"></div>
+    <div class="seg" style="margin-top:8px"><span class="lbl">Готовый состав</span><span id="presetBtns" class="seg"></span><button class="btn" id="clearBtn" type="button">очистить</button></div>
+    <div class="res" id="res"></div>
+  </div>
+
+  <h3 style="margin-top:26px">Матрица сосуществования</h3>
+  <p class="muted" style="font-size:15px">Зелёный — государства существовали одновременно; жёлтый — только с натяжкой (предшественники, клиентские остатки, «тёмные» века); бледно-красный — ни одного общего года. Нажмите на клетку.</p>
+  <div class="mxwrap"><table class="mx" id="mx"></table><div class="mxinfo" id="mxinfo"></div></div>
+
+  <div class="foot">
+    <p>Даты — по общепринятой научной хронологии; для Месопотамии и хеттов — по «средней» хронологии (короткая сдвигает даты II тыс. до н. э. примерно на 64 года позже). Года до нашей эры указаны без знака минус; нулевого года нет.</p>
+    <p>Типы наций: «игра» — нации Civilization VII (CIVILIZATION_…), «MN» — нации модпака Mare Nostrum (MN_…), курсив — фоновые державы, в игре не представленные.</p>
+  </div>
+</div>
+
+<aside class="panel" id="panel" hidden aria-live="polite"></aside>
+
+<script>
+(function(){
+"use strict";
+/* ============================== DATA ============================== */
+var REG = {
+  nile:{n:"Египет и Северная Африка"}, meso:{n:"Месопотамия и Иран"}, anat:{n:"Анатолия и Кавказ"},
+  hellas:{n:"Греция и Балканы"}, italia:{n:"Италия"}, west:{n:"Западная и Северная Европа"}, steppe:{n:"Степь и Восточная Европа"}
+};
+var REG_ORDER = ["nile","meso","anat","hellas","italia","west","steppe"];
+var KIND = {core:"держава", core2:"держава (другой этап)", foreign:"под чужой властью", proto:"предыстория / предшественники", remnant:"после падения / остаток"};
+
+/* s,e — годы существования державы (основа проверки); xs,xe — с натяжкой (предшественники, остатки того же народа). */
+var N = [
+ {id:"egypt",t:"CIVILIZATION_EGYPT",g:"v",n:"Египет",ab:"Егп",r:"nile",s:-3100,e:-30,xs:-3500,xe:-30,sL:"ок. 3100 до н. э.",eL:"30 до н. э.",
+  ph:[[-3500,-3100,"proto","Додинастический Египет (культура Негада)"],[-3100,-1070,"core","Раннее, Древнее, Среднее и Новое царства (с переходными периодами)"],[-1070,-525,"core2","Третий переходный и Поздний период; 671–656 — власть Ассирии"],[-525,-404,"foreign","XXVII династия — власть Персии"],[-404,-343,"core","XXVIII–XXX династии: последние фараоны-египтяне (Нектанеб II)"],[-343,-332,"foreign","вторая власть Персии"],[-332,-30,"core2","Александр и Птолемеи, столица — Александрия"],[-30,641,"remnant","римская, затем восточноримская провинция; арабы — 641"]],
+  cap:"Мемфис, Фивы, Пер-Рамсес, Саис; при Птолемеях — Александрия",
+  end:"Независимость кончилась в 30 до н. э.: после Акция (31) Октавиан занял Египет, Клеопатра VII покончила с собой. Последний фараон-египтянин Нектанеб II потерял страну ещё в 343 до н. э. (Персия).",
+  succ:"Персия (525, 343) → Македония (332) → Птолемеи → Рим (30 до н. э.)",
+  disp:"Объединение — ок. 3100 до н. э. (оценки 3200–3000). Даты до ~700 до н. э. имеют погрешность от нескольких лет до десятилетий.",
+  mod:"Нация игры (CIVILIZATION_EGYPT).",es:"→ Рим (30)"},
+ {id:"babylon",t:"CIVILIZATION_BABYLON",g:"v",n:"Вавилон",ab:"Вав",r:"meso",s:-1894,e:-539,xs:-2300,xe:-539,sL:"ок. 1894 до н. э.",eL:"539 до н. э.",
+  ph:[[-2300,-1894,"proto","город в державах Аккада и Ура"],[-1894,-1595,"core","I (Старовавилонская) династия, Хаммурапи"],[-1595,-1155,"core2","Касситская династия"],[-1155,-729,"core2","II династия Исина и смутные века"],[-729,-626,"foreign","власть Ассирии (разрушение города в 689)"],[-626,-539,"core","Нововавилонское царство: Набопаласар, Навуходоносор II"],[-539,-275,"remnant","сатрапия Персии, затем Селевкидов; город угасает"]],
+  cap:"Вавилон",
+  end:"В 539 до н. э. Кир II разбил войско Набонида при Описе, и Вавилон сдался без боя.",
+  succ:"Персия (539) → Македония (331) → Селевкиды",
+  ldr:[{n:"Хаммурапи",f:-1792,t:-1750,l:"1792–1750 до н. э. (средняя хронология)"}],
+  disp:"Даты I династии — по средней хронологии; по короткой они примерно на 64 года позже (разгром Мурсили I — 1531 вместо 1595).",
+  mod:"Нация игры (CIVILIZATION_BABYLON); Mare Nostrum добавляет лидера Хаммурапи.",es:"→ Персия (539)"},
+ {id:"assyria",t:"CIVILIZATION_ASSYRIA",g:"v",n:"Ассирия",ab:"Асс",r:"meso",s:-2025,e:-609,xs:-2600,xe:-609,sL:"ок. 2025 до н. э.",eL:"609 до н. э.",
+  ph:[[-2600,-2025,"proto","город-государство Ашшур под властью Аккада и Ура"],[-2025,-1500,"core","Староассирийский период: колонии купцов в Анатолии (Каниш), Шамши-Адад I"],[-1500,-1363,"foreign","зависимость от Митанни"],[-1363,-912,"core2","Среднеассирийское царство (Ашшур-убаллит I)"],[-911,-609,"core","Новоассирийская держава: Тиглатпаласар III, Саргон II, Ашшурбанапал"]],
+  cap:"Ашшур; Кальху (Нимруд), Дур-Шаррукин, Ниневия",
+  end:"Мидяне Киаксара и вавилоняне Набопаласара взяли Ашшур (614) и Ниневию (612); последний царь Ашшур-убаллит II вместе с египтянами Нехо II не удержал Харран (610–609).",
+  succ:"Нововавилонское царство и Мидия поделили державу",
+  disp:"Ранние даты (до XV в. до н. э.) приблизительны.",
+  mod:"Нация игры (CIVILIZATION_ASSYRIA).",es:"→ Вавилон и Мидия (612–609)"},
+ {id:"hittites",t:"MN_HITTITES",g:"m",n:"Хетты",ab:"Хет",r:"anat",s:-1650,e:-1180,xs:-1900,xe:-717,sL:"ок. 1650 до н. э.",eL:"ок. 1180 до н. э.",
+  ph:[[-1900,-1650,"proto","хетты в Канише (Несе), царь Анитта"],[-1650,-1400,"core2","Древнее царство: Хаттусили I, Мурсили I"],[-1400,-1180,"core","Новое царство (империя): Суппилулиума I, Муваталли II, битва при Кадеше (1274)"],[-1180,-717,"remnant","неохеттские царства: Каркемиш, Мелид, Гургум"]],
+  cap:"Хаттуса; при Муваталли II — Тархунтасса",
+  end:"Около 1185–1180 до н. э. Хаттуса оставлена и сожжена. Причины спорны: общий кризис конца бронзового века, засуха и голод, распри в династии, набеги касков, «народы моря».",
+  succ:"Неохеттские царства (до 717, когда Саргон II взял Каркемиш); в центре Анатолии — Фригия",
+  ldr:[{n:"Суппилулиума I",f:-1350,t:-1322,l:"ок. 1350–1322 до н. э. (оценки расходятся на 10–30 лет)"}],
+  disp:"Начало Древнего царства — ок. 1650 по средней хронологии; точная дата и причина падения неизвестны.",
+  mod:"Нация Mare Nostrum (MN_HITTITES), лидер Суппилулиума I.",es:"→ распад (ок. 1180)"},
+ {id:"greece",t:"CIVILIZATION_GREECE",g:"v",n:"Греция",ab:"Грц",r:"hellas",s:-800,e:-146,xs:-1600,xe:-146,sL:"ок. 800 до н. э. (полисы)",eL:"146 до н. э.",
+  ph:[[-1600,-1100,"proto","микенская Греция (в хеттских письмах — вероятно, Аххиява)"],[-1100,-800,"proto","«тёмные века»"],[-800,-338,"core","полисы: архаика и классика (Афины, Спарта, Коринф, Фивы)"],[-338,-146,"core2","под гегемонией Македонии; Ахейский и Этолийский союзы"],[-146,500,"remnant","римская Греция (провинция Ахайя с 27 до н. э.)"]],
+  cap:"Единой столицы нет: Афины, Спарта, Коринф, Фивы",
+  end:"В 146 до н. э. Луций Муммий разбил Ахейский союз и разрушил Коринф; Греция подчинена Риму (провинция Ахайя — с 27 до н. э.).",
+  succ:"Рим; греческий язык и культура — основа Восточной Римской империи",
+  ldr:[{n:"Леонид I",f:-489,t:-480,l:"царь Спарты ок. 489–480 до н. э., погиб при Фермопилах"},{n:"Платон",f:-427,t:-347,l:"жил 427–347 до н. э.; философ, не правитель"}],
+  disp:"Отождествление Аххиявы хеттских текстов с микенцами принимает большинство учёных, но не все.",
+  mod:"Нация игры (CIVILIZATION_GREECE); Mare Nostrum добавляет лидеров Платона и Леонида.",es:"→ Рим (146)"},
+ {id:"persia",t:"CIVILIZATION_PERSIA",g:"v",n:"Персия",ab:"Пер",r:"meso",s:-550,e:-330,xs:-650,xe:-330,sL:"550 до н. э.",eL:"330 до н. э.",
+  ph:[[-650,-550,"proto","царство Аншан (Теиспиды), вассалы Мидии"],[-550,-330,"core","держава Ахеменидов: Кир II, Камбис, Дарий I, Ксеркс"]],
+  cap:"Пасаргады, Сузы, Персеполь, Экбатана, Вавилон",
+  end:"Александр Македонский разбил Дария III при Иссе (333) и Гавгамелах (331); в 330 Дария убил сатрап Бесс.",
+  succ:"Держава Александра → Селевкиды → Парфия (с 247) → Сасаниды (с 224 н. э., считали себя наследниками Ахеменидов)",
+  disp:"Ранняя хронология Аншана (VII в. до н. э.) приблизительна.",
+  mod:"Нация игры (CIVILIZATION_PERSIA). На карте Mare Nostrum стартует в Сузах.",es:"→ Македония (330)"},
+ {id:"carthage",t:"CIVILIZATION_CARTHAGE",g:"v",n:"Карфаген",ab:"Крф",r:"nile",s:-814,e:-146,xs:-814,xe:-146,sL:"ок. 814 до н. э.",eL:"146 до н. э.",
+  ph:[[-814,-264,"core","колония Тира → морская держава Запада"],[-264,-146,"core2","Пунические войны с Римом"],[-29,698,"remnant","римская колония Карфаген (с 29 до н. э.); вандалы 439–533; арабы — 698"]],
+  cap:"Карфаген",
+  end:"В Третьей Пунической войне (149–146) Сципион Эмилиан взял и разрушил город; земли стали провинцией Африка.",
+  succ:"Рим (провинция Африка); часть земель — Нумидии",
+  ldr:[{n:"Ганнибал Барка",f:-221,t:-202,l:"род. 247, ум. 183 или 181; командовал армией 221–202 до н. э."}],
+  disp:"814/813 — дата античной традиции (Тимей); древнейшие находки в Карфагене — конец IX–VIII в. до н. э.",
+  mod:"Нация игры (CIVILIZATION_CARTHAGE); Mare Nostrum добавляет лидера Ганнибала.",es:"→ Рим (146)"},
+ {id:"rome",t:"CIVILIZATION_ROME",g:"v",n:"Рим",ab:"Рим",r:"italia",s:-753,e:476,xs:-753,xe:700,sL:"753 до н. э. (предание)",eL:"476 н. э. (Запад)",
+  ph:[[-753,-509,"core2","царский период (дата основания — по преданию)"],[-509,-27,"core","Республика"],[-27,284,"core2","Принципат"],[284,476,"core","Поздняя империя; Запад"],[476,700,"remnant","Восточная Римская империя (до 1453)"]],
+  cap:"Рим; в поздней империи — Медиолан (286–402) и Равенна (402–476); на Востоке — Константинополь (с 330)",
+  end:"Западная империя кончилась в 476: германский военачальник Одоакр низложил Ромула Августула и отослал регалии в Константинополь. Восточная Римская империя существовала до 1453.",
+  succ:"Королевство Одоакра → остготы; франки, вестготы, вандалы; Восточная Римская империя",
+  disp:"753 — дата Варрона; поселения на холмах Рима археологи находят с X–IX вв. до н. э. 476 — условная граница: Юлия Непота признавали императором Запада до 480.",
+  mod:"Нация игры (CIVILIZATION_ROME).",es:"Запад → Одоакр (476)"},
+ {id:"gaul",t:"CIVILIZATION_GAUL",g:"v",n:"Галлы",ab:"Гал",r:"west",s:-450,e:-52,xs:-800,xe:-52,sL:"ок. 450 до н. э. (латен)",eL:"52 до н. э.",
+  ph:[[-800,-450,"proto","гальштатская культура (связь с кельтами спорна)"],[-450,-121,"core","латенская культура: галлы, набег на Рим, Галатия в Азии"],[-121,-52,"core2","юг — римская Нарбонская Галлия (121); остальная Галлия свободна"],[-52,486,"remnant","римская Галлия → франки (486)"]],
+  cap:"Единой столицы нет; оппидумы: Бибракте (эдуи), Герговия (арверны), Алезия (мандубии)",
+  end:"Цезарь покорял Галлию в 58–50 до н. э.; в 52 Верцингеториг сдался после осады Алезии.",
+  succ:"Рим (Галлия Косматая); затем франки Хлодвига (486)",
+  ldr:[{n:"Верцингеториг",f:-52,t:-46,l:"вождь арвернов; восстание 52 до н. э., казнён в Риме ок. 46"}],
+  disp:"Насколько гальштатские общины были «кельтами» — спорно; надёжно кельтскими считают латенских галлов.",
+  mod:"Нация игры (CIVILIZATION_GAUL); Mare Nostrum добавляет лидера Верцингеторига.",es:"→ Рим (52)"},
+ {id:"armenia",t:"MN_ARMENIA",g:"m",n:"Армения",ab:"Арм",r:"anat",s:-189,e:428,xs:-570,xe:428,sL:"189 до н. э.",eL:"428 н. э.",
+  ph:[[-570,-189,"proto","Ервандиды (Оронтиды): сатрапия Персии, затем царство под Селевкидами"],[-189,1,"core","Арташесиды: Арташес I, Тигран II Великий"],[1,52,"core2","смута: римские и парфянские ставленники"],[52,428,"core","Аршакиды (Тиридат I); христианство ок. 301; раздел 387"]],
+  cap:"Армавир, Ервандашат; Арташат (основан ок. 176 до н. э.), Тигранакерт (ок. 77 до н. э.), Вагаршапат, Двин",
+  end:"В 387 Армению поделили Рим и Сасаниды; в 428 Бахрам V по просьбе армянской знати низложил последнего Аршакида Арташеса IV, восточная Армения стала марзпанством Персии.",
+  succ:"Сасанидская Персармения и Восточная Римская империя",
+  ldr:[{n:"Тигран II Великий",f:-95,t:-55,l:"95–55 до н. э."}],
+  disp:"Независимость считают от 190/189 (после Магнесии); граница эпох Арташесидов и Аршакидов размыта.",
+  mod:"Нация Mare Nostrum (MN_ARMENIA), лидер Тигран II. На карте стартует в Арташате.",es:"→ Сасаниды (428)"},
+ {id:"britons",t:"MN_BRITONS",g:"m",n:"Бритты",ab:"Брт",r:"west",s:-800,e:43,xs:-800,xe:700,sL:"ок. 800 до н. э.",eL:"43 н. э.",
+  ph:[[-800,43,"core","железный век Британии: племена бриттов, оппидумы"],[43,410,"foreign","римская Британия; север (Каледония) и Ирландия не покорены"],[410,700,"core2","послеримские бриттские королевства"]],
+  cap:"Единой столицы нет; Камулодун (Колчестер), Веруламий; Боудикка — царица иценов (Норфолк)",
+  end:"В 43 н. э. Британию начал покорять Клавдий; восстание Боудикки (60 или 61) подавил Светоний Паулин. Рим ушёл ок. 410.",
+  succ:"Римская Британия → бриттские королевства (Уэльс, Думнония, Стратклайд) и англосаксы",
+  ldr:[{n:"Боудикка",f:60,t:61,l:"восстание 60 или 61 н. э."}],
+  disp:"Когда острова стали «кельтскими» — спорно (от бронзового века до VI в. до н. э.); ок. 800 — условное начало железного века.",
+  mod:"Нация Mare Nostrum (MN_BRITONS), лидер Боудикка.",es:"→ Рим (43)"},
+ {id:"cyrenaica",t:"MN_CYRENAICA",g:"m",n:"Киренаика",ab:"Кир",r:"nile",s:-322,e:-96,xs:-631,xe:-96,sL:"322 до н. э. (Птолемеи)",eL:"96 до н. э.",
+  ph:[[-631,-440,"proto","греческая Кирена: династия Баттиадов"],[-440,-322,"proto","республика и смуты"],[-322,-276,"core2","птолемеевская Киренаика"],[-276,-250,"core","отдельное царство Магаса"],[-250,-96,"core2","Береника II; с 246 — снова часть царства Птолемеев, позже отдельные правители (163–145, ок. 105–96)"],[-96,500,"remnant","Рим: завещана в 96, провинция с 74; с 67 — «Крит и Киренаика»"]],
+  cap:"Кирена; Береника (Евгесперида), Птолемаида, Аполлония, Барка — Пентаполь",
+  end:"Последний царь Птолемей Апион завещал Киренаику Риму (96 до н. э.); провинцией она стала в 74.",
+  succ:"Рим (Крит и Киренаика)",
+  ldr:[{n:"Береника II",f:-250,t:-221,l:"ок. 267–221 до н. э.; наследница Кирены после смерти Магаса (250), с 246 — царица Египта"}],
+  disp:"Год независимости Магаса — ок. 276/275 (спорно).",
+  mod:"Нация Mare Nostrum (MN_CYRENAICA), лидер Береника II: в моде это птолемеевская Киренаика III в. до н. э. Старт — Кирена.",es:"→ Рим (96)"},
+ {id:"dacia",t:"MN_DACIA",g:"m",n:"Даки",ab:"Дак",r:"hellas",s:-82,e:106,xs:-514,xe:106,sL:"ок. 82 до н. э.",eL:"106 н. э.",
+  ph:[[-514,-82,"proto","геты и даки: племенные царства (Дромихет, ок. 300)"],[-82,-44,"core","держава Буребисты"],[-44,87,"core2","распад на несколько царств"],[87,106,"core","Децебал"],[106,271,"remnant","римская Дакия; оставлена при Аврелиане ок. 271–275"]],
+  cap:"Сармизегетуса Регия; при Буребисте — Аргедава (местоположение спорно)",
+  end:"Траян в двух войнах (101–102 и 105–106) взял Сармизегетусу; Децебал покончил с собой.",
+  succ:"Римская Дакия → готы, гепиды; свободные даки (карпы, костобоки)",
+  ldr:[{n:"Децебал",f:87,t:106,l:"87–106 н. э."}],
+  disp:"Начало правления Буребисты — ок. 82 до н. э. (иногда ок. 70). Один народ геты и даки или два — обсуждается.",
+  mod:"Нация Mare Nostrum (MN_DACIA), лидер Децебал. Столица — Сармизегетуса.",es:"→ Рим (106)"},
+ {id:"germans",t:"MN_GERMANS",g:"m",n:"Германцы",ab:"Гер",r:"west",s:-120,e:700,xs:-600,xe:700,sL:"ок. 120 до н. э.",eL:"не пали",
+  ph:[[-600,-120,"proto","ясторфская культура (принадлежность германцам спорна)"],[-120,9,"core2","кимвры и тевтоны (113–101), свевы Ариовиста"],[9,375,"core","свободная Германия: Тевтобург, маркоманны, алеманны, франки, готы"],[375,700,"core2","Великое переселение и германские королевства"]],
+  cap:"Единой столицы нет",
+  end:"Не пали: германские племена пережили античность. В 476 Одоакр низложил последнего императора Запада; их королевства (франки, готы, вандалы) поделили Западную империю.",
+  succ:"Франки, вестготы, остготы, вандалы, лангобарды, англосаксы",
+  ldr:[{n:"Арминий",f:9,t:21,l:"вождь херусков (ок. 18/17 до н. э. – 21 н. э.); Тевтобург — 9 н. э."}],
+  disp:"Где и когда сложилась германская общность — спорно; ясторфская культура — самый частый кандидат.",
+  mod:"Нация Mare Nostrum (MN_GERMANS), лидер Арминий; на карте — к северу и востоку от Галлии.",es:"→ германские королевства"},
+ {id:"illyria",t:"MN_ILLYRIA",g:"m",n:"Иллирия",ab:"Илл",r:"hellas",s:-393,e:-168,xs:-1000,xe:-168,sL:"ок. 393 до н. э.",eL:"168 до н. э.",
+  ph:[[-1000,-393,"proto","иллирийские племена железного века"],[-393,-260,"core2","царство Бардилла (ок. 393–358) и его преемников"],[-260,-168,"core","царство ардиеев: Агрон, Тевта, Гентий"]],
+  cap:"Скодра; при Тевте — Ризон",
+  end:"В Третьей Иллирийской войне (168 до н. э.) Луций Аниций Галл взял Скодру и пленил царя Гентия. Провинция Иллирик оформлена позднее.",
+  succ:"Рим (Иллирик, затем Далмация и Паннония)",
+  ldr:[{n:"Тевта",f:-231,t:-228,l:"регентша 231–228 до н. э. (иногда — до 227)"}],
+  disp:"«Иллирийцами» греки и римляне звали много разных племён; к какому принадлежал Бардилл, спорно.",
+  mod:"Нация Mare Nostrum (MN_ILLYRIA), лидер Тевта. Столица — Скодра.",es:"→ Рим (168)"},
+ {id:"macedon",t:"MN_MACEDON",g:"m",n:"Македония",ab:"Мак",r:"hellas",s:-700,e:-168,xs:-700,xe:-148,sL:"ок. 700 до н. э.",eL:"168 до н. э.",
+  ph:[[-700,-359,"core2","Аргеады; столица Эги, с ок. 400 — Пелла"],[-359,-323,"core","Филипп II и Александр"],[-323,-168,"core2","диадохи; Антигониды"],[-168,-146,"remnant","четыре республики; Андриск (149–148); провинция с 146"]],
+  cap:"Эги (Вергина), Пелла (с ок. 400 до н. э.)",
+  end:"Эмилий Павел разбил Персея при Пидне (168 до н. э.); после восстания Андриска Македония стала провинцией (146).",
+  succ:"Рим; осколки державы Александра — Птолемеи, Селевкиды",
+  ldr:[{n:"Филипп II",f:-359,t:-336,l:"359–336 до н. э."}],
+  disp:"Начало династии: по Геродоту — Пердикка I (VII в. до н. э.), по поздним авторам — Каран (VIII в.).",
+  mod:"Нация Mare Nostrum (MN_MACEDON), лидер Филипп II. Старт — Пелла.",es:"→ Рим (168)"},
+ {id:"numidia",t:"MN_NUMIDIA",g:"m",n:"Нумидия",ab:"Нум",r:"nile",s:-202,e:-46,xs:-300,xe:-46,sL:"202 до н. э.",eL:"46 до н. э.",
+  ph:[[-300,-202,"proto","царства массилиев (Гайя) и масесилиев (Сифакс)"],[-202,-148,"core","Массинисса объединяет Нумидию"],[-148,-46,"core2","Миципса, Югурта (война с Римом 112–105), Юба I"],[-46,500,"remnant","римская Новая Африка, затем провинция Нумидия"]],
+  cap:"Цирта; у Сифакса — Сига, у Юбы I — Зама Регия",
+  end:"Юба I поддержал помпеянцев и был разбит Цезарем при Тапсе (46 до н. э.); Нумидия стала провинцией Новая Африка. Его сын Юба II позже получил Мавретанию (25 до н. э.).",
+  succ:"Рим",
+  ldr:[{n:"Массинисса",f:-202,t:-148,l:"царь 202–148 до н. э."}],
+  disp:"Начало царств массилиев и масесилиев известно плохо (не позже III в. до н. э.).",
+  mod:"Нация Mare Nostrum (MN_NUMIDIA), лидер Массинисса. Старт — Цирта.",es:"→ Рим (46)"},
+ {id:"parthia",t:"MN_PARTHIA",g:"m",n:"Парфия",ab:"Пар",r:"meso",s:-247,e:224,xs:-247,xe:224,sL:"247 до н. э.",eL:"224 н. э.",
+  ph:[[-247,-171,"core2","Арсак I и преемники: Ниса, Гекатомпил"],[-171,-132,"core","Митридат I: Мидия, Месопотамия, Селевкия (141)"],[-132,224,"core2","держава Аршакидов, соперник Рима (Карры, 53 до н. э.)"]],
+  cap:"Ниса, Гекатомпил, Экбатана, Ктесифон",
+  end:"Перс Ардашир I разбил последнего царя Артабана IV при Ормиздагане (224 н. э.) и взял Ктесифон (226).",
+  succ:"Сасаниды; ветви Аршакидов правили Арменией (до 428), Иберией и Кавказской Албанией",
+  ldr:[{n:"Митридат I",f:-171,t:-132,l:"ок. 171–132 до н. э."}],
+  disp:"247 до н. э. — начало парфянской эры; сам захват Парфии Арсаком датируют ок. 238.",
+  mod:"Нация Mare Nostrum (MN_PARTHIA), лидер Митридат I. Старт — Гекатомпил.",es:"→ Сасаниды (224)"},
+ {id:"pontus",t:"MN_PONTUS",g:"m",n:"Понт",ab:"Пон",r:"anat",s:-281,e:-63,xs:-302,xe:62,sL:"281 до н. э.",eL:"63 до н. э.",
+  ph:[[-302,-281,"proto","Митридат I Ктист утверждается в Кимиате"],[-281,-120,"core2","Понтийское царство Митридатидов"],[-120,-63,"core","Митридат VI: Боспор, Крым, войны с Римом (89–63)"],[-63,62,"remnant","клиентский Понт при Риме (Полемониды); присоединён при Нероне"]],
+  cap:"Амасия; Синопа (с 183 до н. э.)",
+  end:"Помпей разбил Митридата VI (66 до н. э.); после мятежа сына Фарнака царь покончил с собой в Пантикапее (63). Запад Понта вошёл в провинцию Вифиния и Понт; остаток — клиентское царство до 62 (или 64) н. э.",
+  succ:"Рим; Боспорское царство (Фарнак II)",
+  ldr:[{n:"Митридат VI Евпатор",f:-120,t:-63,l:"120–63 до н. э."}],
+  disp:"Год присоединения клиентского Понта — 62 или 64 н. э.",
+  mod:"Нация Mare Nostrum (MN_PONTUS), лидер Митридат VI Евпатор. Старт — Синопа.",es:"→ Рим (63)"},
+ {id:"scythians",t:"MN_SCYTHIANS",g:"m",n:"Скифы",ab:"Скф",r:"steppe",s:-700,e:250,xs:-700,xe:250,sL:"ок. 700 до н. э.",eL:"сер. III в. н. э.",
+  ph:[[-700,-339,"core","Великая Скифия: походы в Переднюю Азию (VII в.), курганы Причерноморья"],[-339,-200,"core2","упадок, натиск сарматов"],[-200,250,"core2","Малая Скифия в Крыму: Скилур, Неаполь Скифский"]],
+  cap:"Кочевые ставки; Каменское городище на Днепре (IV в. до н. э.); Неаполь Скифский (Крым)",
+  end:"Степи у Чёрного моря в III–II вв. до н. э. заняли сарматы; крымское царство скифов погибло в сер. III в. н. э., вероятно от готов (Неаполь Скифский разрушен).",
+  succ:"Сарматы, готы",
+  ldr:[{n:"Атей",f:-339,t:-339,l:"погиб в 339 до н. э. в битве с Филиппом II, в возрасте ок. 90 лет; начало правления неизвестно"}],
+  disp:"Первое появление скифов в источниках — ассирийские тексты VII в. до н. э.; конец крымской Скифии датирован по археологии.",
+  mod:"Нация Mare Nostrum (MN_SCYTHIANS), лидер Атей.",es:"→ сарматы, готы"},
+ {id:"slavs",t:"MN_SLAVS",g:"m",n:"Ранние славяне",ab:"Слв",r:"steppe",s:500,e:700,xs:200,xe:700,sL:"ок. 500 н. э.",eL:"не пали",
+  ph:[[200,500,"proto","киевская культура и др. — возможные праславяне; анты (Бож, ок. 380)"],[500,700,"core","склавины и анты в источниках (Иордан, Прокопий, ок. 550); пражская культура; держава Само (623–658)"]],
+  cap:"Зимно (городище на Волыни, VI–VII вв.); центр державы Само (Вогастисбург) не найден",
+  end:"Не пали: в VI–VII вв. славяне расселились от Эльбы до Балкан и Днепра.",
+  succ:"Славянские княжества и державы раннего Средневековья",
+  ldr:[{n:"Бож",f:380,t:380,l:"вождь антов, распят готским королём Винитаром ок. 380 (по Иордану)"},{n:"Самослав (Само)",f:623,t:658,l:"623–658 н. э. — за пределом основной шкалы"}],
+  disp:"Происхождение славян — одна из самых спорных тем: письменно они известны только с VI в. Иордан считает антов славянами, но связь антов IV в. со славянами VI в. обсуждается.",
+  mod:"Нация Mare Nostrum (MN_SLAVS): в текущей версии лидер — Самослав (623–658), раньше был Бож; старт — Зимно на Волыни. Самая поздняя нация модпака.",es:"→ славянские державы"},
+ {id:"thrace",t:"MN_THRACE",g:"m",n:"Фракия",ab:"Фрк",r:"hellas",s:-480,e:46,xs:-1000,xe:46,sL:"ок. 480 до н. э.",eL:"46 н. э.",
+  ph:[[-1000,-480,"proto","фракийские племена железного века; в 513–479 побережье под властью Персии"],[-480,-341,"core","Одрисское царство: Терес I, Ситалк, Котис I"],[-341,-281,"foreign","власть Македонии (Филипп II, 342–340), затем Лисимаха; Севт III основывает Севтополь (ок. 320)"],[-281,46,"core2","малые фракийские царства; кельтское царство Тилис (ок. 278–212); с I в. до н. э. — клиент Рима"],[46,500,"remnant","римская провинция Фракия"]],
+  cap:"Одрисские резиденции (где была столица в V в. до н. э., неизвестно); Севтополь (ок. 320 до н. э.); Бизия у поздних царей",
+  end:"Филипп II подчинил одрисов в 342–340 до н. э.; после него фракийские царства жили под Македонией, затем как клиенты Рима. В 46 н. э., после убийства царя Реметалка III, Клавдий сделал Фракию провинцией.",
+  succ:"Македония (342) → малые царства → Рим (провинция Фракия, 46 н. э.)",
+  ldr:[{n:"Ситалк",f:-431,t:-424,l:"ок. 431–424 до н. э.; в 429 повёл фракийцев на Македонию"}],
+  disp:"Начало царства — по Фукидиду, при Тересе I (ок. 480–470 до н. э.); где стояла столица одрисов в V в., неизвестно.",
+  mod:"Нация Mare Nostrum (MN_THRACE), лидер Ситалк. Старт — Севтополь.",es:"→ Рим (46)"},
+ {id:"iberia",t:"MN_IBERIA",g:"m",n:"Иберия",ab:"Ибр",r:"west",s:-900,e:-550,xs:-1200,xe:-206,sL:"ок. 900 до н. э.",eL:"ок. 550 до н. э.",
+  ph:[[-1200,-900,"proto","поздний бронзовый век юго-запада Иберии"],[-900,-550,"core","Тартесс: серебро рудников, торговля с финикийцами Гадира и греками-фокейцами"],[-550,-237,"remnant","турдетаны, наследники Тартесса"],[-237,-206,"foreign","власть Баркидов Карфагена"],[-206,500,"remnant","римская Испания (позже провинция Бетика)"]],
+  cap:"Тартесс — город не найден; ищут в низовьях Гвадалквивира и у Уэльвы (древняя Онуба)",
+  end:"Около середины VI в. до н. э. Тартесс исчезает из источников; причины неизвестны (истощение рудников, ослабление Тира, давление Карфагена). Его земли наследуют турдетаны; с 237 до н. э. юг Иберии покоряют Баркиды, а после Илипы (206) он переходит к Риму.",
+  succ:"Турдетаны → Карфаген Баркидов (237) → Рим (206)",
+  ldr:[{n:"Аргантоний",f:-630,t:-550,l:"ок. 630–550 до н. э., по Геродоту правил 80 лет; даты условны"}],
+  disp:"Тартесс известен по греческим авторам и археологии; сам город не найден, его границы и даты расцвета спорны.",
+  mod:"Нация Mare Nostrum (MN_IBERIA), лидер Аргантоний. Старт — Тартесс / Онуба.",es:"→ турдетаны (ок. 550)"},
+ /* ---------- фоновые державы ---------- */
+ {id:"sumer",g:"c",n:"Шумер и Аккад",r:"meso",s:-3500,e:-2004,sL:"ок. 3500 до н. э.",eL:"2004 до н. э.",ph:[[-3500,-2004,"core",""]],note:"Города Шумера; держава Аккада ок. 2334–2154 (средняя хронология); III династия Ура пала в 2004 под ударом Элама."},
+ {id:"mitanni",g:"c",n:"Митанни",r:"meso",s:-1550,e:-1260,sL:"ок. 1550 до н. э.",eL:"ок. 1260 до н. э.",ph:[[-1550,-1260,"core",""]],note:"Хурритское царство в Северной Месопотамии; с ок. 1340 — вассал хеттов, остаток (Ханигальбат) поглотила Ассирия."},
+ {id:"seapeoples",g:"c",n:"«Народы моря»",r:"hellas",s:-1210,e:-1170,sL:"ок. 1210 до н. э.",eL:"ок. 1170 до н. э.",ph:[[-1210,-1170,"core",""]],note:"Известны по надписям Мернептаха (ок. 1208) и Рамсеса III (ок. 1175). Их роль в падении хеттов и Угарита спорна."},
+ {id:"phoenicia",g:"c",n:"Финикийские города",r:"meso",s:-1200,e:-332,sL:"ок. 1200 до н. э.",eL:"332 до н. э.",ph:[[-1200,-332,"core",""]],note:"Тир, Сидон, Библ; данники Ассирии, Вавилона и Персии; Тир взят Александром в 332."},
+ {id:"urartu",g:"c",n:"Урарту",r:"anat",s:-860,e:-590,sL:"ок. 860 до н. э.",eL:"ок. 590 до н. э.",ph:[[-860,-590,"core",""]],note:"Ванское царство, предшественник Армении на той же земле. Кто его уничтожил (мидяне, скифы?), спорно."},
+ {id:"media",g:"c",n:"Мидия",r:"meso",s:-700,e:-550,sL:"ок. 700 до н. э.",eL:"550 до н. э.",ph:[[-700,-550,"core",""]],note:"Ранняя хронология Мидии (по Геродоту) спорна; надёжно — Киаксар (ок. 625–585) и свержение Астиага Киром (550)."},
+ {id:"seleucids",g:"c",n:"Селевкиды",r:"meso",s:-312,e:-63,sL:"312 до н. э.",eL:"63 до н. э.",ph:[[-312,-63,"core",""]],note:"Держава одного из диадохов Александра; столицы — Селевкия на Тигре и Антиохия. Помпей сделал Сирию провинцией."},
+ {id:"sarmatians",g:"c",n:"Сарматы",r:"steppe",s:-350,e:375,sL:"ок. IV в. до н. э.",eL:"ок. 375 н. э.",ph:[[-350,375,"core",""]],note:"Ираноязычные кочевники, сменившие скифов в степях; их ветвь аланы разбита гуннами ок. 370."},
+ {id:"goths",g:"c",n:"Готы",r:"steppe",s:200,e:700,sL:"ок. 200 н. э.",eL:"VIII в.",ph:[[200,700,"core",""]],note:"У Чёрного моря с III в.; после гуннов — остготы в Италии (493–553) и вестготы в Испании (до 711)."},
+ {id:"huns",g:"c",n:"Гунны",r:"steppe",s:370,e:469,sL:"ок. 370 н. э.",eL:"ок. 469 н. э.",ph:[[370,469,"core",""]],note:"Аттила (434–453); после битвы при Недао (454) держава распалась."},
+ {id:"sasanids",g:"c",n:"Сасаниды",r:"meso",s:224,e:651,sL:"224 н. э.",eL:"651 н. э.",ph:[[224,651,"core",""]],note:"Новая персидская держава; столица — Ктесифон. Сасаниды считали себя наследниками Ахеменидов. Пали под ударом арабов."},
+ {id:"vandals",g:"c",n:"Вандалы в Африке",r:"nile",s:429,e:534,sL:"429 н. э.",eL:"534 н. э.",ph:[[429,534,"core",""]],note:"Переправились в Африку в 429, взяли Карфаген в 439; королевство уничтожил Велизарий (533–534)."},
+ {id:"franks",g:"c",n:"Франки",r:"west",s:481,e:700,sL:"481 н. э.",eL:"VIII в. и далее",ph:[[481,700,"core",""]],note:"Хлодвиг (481–511); победа при Суассоне (486) покончила с римской Галлией."},
+ {id:"anglosax",g:"c",n:"Англосаксы",r:"west",s:450,e:700,sL:"ок. 450 н. э.",eL:"VIII в. и далее",ph:[[450,700,"core",""]],note:"Расселение англов, саксов и ютов в Британии с середины V в."}
+];
+var BY = {}; N.forEach(function(x){ if(x.xs==null){x.xs=x.s;} if(x.xe==null){x.xe=x.e;} BY[x.id]=x; });
+var PLAY = N.filter(function(x){return x.g!=="c";});
+
+/* Связи: от кого, к кому, год, тип (c — покорение, h — удар без покорения, s — преемство), текст */
+var E = [
+ ["sumer","assyria",-2025,"s","Ашшур выходит из-под власти III династии Ура (ок.)"],
+ ["sumer","babylon",-1894,"s","аморейская династия Вавилона наследует городам Шумера и Аккада"],
+ ["hittites","babylon",-1595,"h","Мурсили I берёт Вавилон, конец I династии (средняя хронология)"],
+ ["hittites","mitanni",-1340,"c","Суппилулиума I громит Митанни, оно становится вассалом (ок.)"],
+ ["assyria","mitanni",-1260,"c","Ассирия поглощает Ханигальбат (ок.)"],
+ ["seapeoples","hittites",-1180,"h","«народы моря» и общий кризис; их вклад в падение Хаттусы спорен"],
+ ["seapeoples","egypt",-1175,"h","Рамсес III отбивает «народы моря» (ок.)"],
+ ["phoenicia","carthage",-814,"s","Тир основывает Карфаген (дата предания)"],
+ ["assyria","babylon",-729,"c","Тиглатпаласар III становится царём Вавилона"],
+ ["assyria","hittites",-717,"c","Саргон II берёт Каркемиш — конец неохеттских царств"],
+ ["assyria","egypt",-671,"c","Асархаддон берёт Мемфис (власть Ассирии до ок. 656)"],
+ ["greece","cyrenaica",-631,"s","колонисты с Феры основывают Кирену (Батт I)"],
+ ["media","assyria",-612,"c","Киаксар: взятие Ашшура (614) и Ниневии (612)"],
+ ["babylon","assyria",-612,"c","Набопаласар с мидянами берёт Ниневию; Харран пал в 609"],
+ ["media","urartu",-590,"c","конец Урарту (ок.; виновник спорен)"],
+ ["urartu","armenia",-570,"s","на землях Урарту складывается Армения Ервандидов (ок.)"],
+ ["persia","media",-550,"c","Кир II свергает Астиага"],
+ ["persia","babylon",-539,"c","Кир II: битва при Описе, Вавилон сдаётся без боя"],
+ ["persia","phoenicia",-539,"c","финикийские города признают власть Персии (ок.)"],
+ ["persia","egypt",-525,"c","Камбис II побеждает при Пелусии"],
+ ["persia","cyrenaica",-525,"c","Кирена признаёт власть Камбиса и платит дань"],
+ ["persia","scythians",-513,"h","поход Дария I в Скифию без победы (513 или 514)"],
+ ["greece","persia",-480,"h","Саламин (480) и Платеи (479) останавливают Ксеркса"],
+ ["gaul","rome",-390,"h","галлы Бренна разоряют Рим (390 по Варрону, 387 по Полибию)"],
+ ["macedon","illyria",-358,"h","Филипп II разбивает Бардилла"],
+ ["macedon","scythians",-339,"h","Филипп II разбивает скифов; Атей гибнет"],
+ ["macedon","greece",-338,"c","Херонея: гегемония Македонии (Коринфский союз)"],
+ ["macedon","phoenicia",-332,"c","Александр берёт Тир"],
+ ["macedon","egypt",-332,"c","Египет сдаётся Александру"],
+ ["macedon","persia",-330,"c","Гавгамелы (331); гибель Дария III (330)"],
+ ["egypt","cyrenaica",-322,"c","Офелл присоединяет Киренаику для Птолемея I"],
+ ["macedon","seleucids",-312,"s","Селевк I — один из диадохов Александра"],
+ ["rome","illyria",-229,"h","Первая Иллирийская война против Тевты (229–228)"],
+ ["rome","macedon",-168,"c","Пидна: Эмилий Павел разбивает Персея"],
+ ["rome","illyria",-168,"c","Аниций Галл берёт Скодру, Гентий пленён"],
+ ["numidia","carthage",-150,"h","Массинисса отнимает земли Карфагена — повод к III Пунической войне"],
+ ["rome","carthage",-146,"c","Сципион Эмилиан разрушает Карфаген"],
+ ["rome","greece",-146,"c","Муммий разрушает Коринф"],
+ ["parthia","seleucids",-141,"c","Митридат I берёт Селевкию на Тигре"],
+ ["pontus","scythians",-108,"h","Диофант, полководец Митридата VI, разбивает крымских скифов (ок. 110–107)"],
+ ["rome","cyrenaica",-96,"s","Птолемей Апион завещает Киренаику Риму; провинция с 74"],
+ ["armenia","seleucids",-83,"c","Тигран II занимает Сирию (ок.)"],
+ ["rome","armenia",-66,"h","Тигран II сдаётся Помпею и становится союзником Рима"],
+ ["rome","pontus",-63,"c","Помпей; смерть Митридата VI в Пантикапее"],
+ ["rome","seleucids",-63,"c","Помпей делает Сирию провинцией (64/63)"],
+ ["parthia","rome",-53,"h","Карры: гибель Красса"],
+ ["rome","gaul",-52,"c","Алезия: Верцингеториг сдаётся Цезарю"],
+ ["rome","numidia",-46,"c","Тапс: Юба I разбит, Цезарь создаёт Новую Африку"],
+ ["rome","egypt",-30,"c","Октавиан; смерть Клеопатры VII"],
+ ["germans","rome",9,"h","Тевтобургский лес: Арминий уничтожает три легиона Вара"],
+ ["rome","britons",43,"c","вторжение Клавдия"],
+ ["rome","pontus",62,"c","Нерон присоединяет клиентский Понт (62 или 64)"],
+ ["parthia","armenia",66,"s","Тиридат I из Аршакидов коронован в Риме: армянские Аршакиды"],
+ ["rome","dacia",106,"c","Траян берёт Сармизегетусу; гибель Децебала"],
+ ["sasanids","parthia",224,"c","Ардашир I разбивает Артабана IV"],
+ ["sarmatians","scythians",-200,"h","сарматы вытесняют скифов из степей (III–II вв., ок.)"],
+ ["goths","scythians",250,"c","готы разрушают Неаполь Скифский (сер. III в.)"],
+ ["huns","sarmatians",370,"c","гунны громят аланов (ок.)"],
+ ["huns","goths",375,"h","гунны разбивают грейтунгов, готы уходят за Дунай"],
+ ["goths","slavs",380,"h","Винитар распинает Божа, вождя антов (ок. 380, по Иордану)"],
+ ["sasanids","armenia",428,"c","Бахрам V низлагает Арташеса IV — конец армянского царства"],
+ ["vandals","carthage",439,"c","Гейзерих берёт римский Карфаген"],
+ ["anglosax","britons",450,"h","расселение англосаксов (с сер. V в.)"],
+ ["germans","rome",476,"c","Одоакр низлагает Ромула Августула"],
+ ["franks","gaul",486,"c","Хлодвиг при Суассоне: конец римской Галлии"],
+ ["rome","vandals",534,"c","Велизарий уничтожает королевство вандалов"],
+ ["persia","thrace",-513,"c","поход Дария I: побережье Фракии под властью Персии до 479"],
+ ["macedon","thrace",-341,"c","Филипп II подчиняет одрисов (342–340)"],
+ ["rome","thrace",46,"c","Клавдий делает Фракию провинцией"],
+ ["carthage","iberia",-237,"c","Гамилькар Барка начинает покорение юга Иберии"],
+ ["rome","iberia",-206,"c","Сципион при Илипе: юг Иберии переходит к Риму"],
+ ["slavs","rome",550,"h","набеги склавинов и антов на Балканы (VI в.)"]
+];
+var ETYPE = {c:"покорение", h:"удар / победа без покорения", s:"преемство, колония, наследство"};
+
+var ERAS = [
+ {id:"bronze",n:"Бронзовый век",f:-3500,t:-1200,w:540,
+  d:"Первые государства у великих рек: Египет, Шумер, Вавилон, Ассирия, хетты. Для Civ VII — ранний старт Древности: мало наций, много пустой земли.",
+  pre:[{n:"«Век Хаммурапи», ок. 1800–1600",ids:["egypt","babylon","assyria","hittites"],note:"хетты — только Древнее царство (с ок. 1650)"},
+       {n:"«Век Амарны и Кадеша», ок. 1400–1200",ids:["egypt","babylon","assyria","hittites","greece"],note:"Вавилон касситский; Греция — микенцы (натяжка)"}],
+  rules:[{a:["hittites"],b:["macedon","persia","parthia","pontus","armenia","rome","carthage","cyrenaica"],w:"Хеттское царство исчезло ок. 1180 до н. э.: Карфаген и Рим появятся через 350–430 лет, Македония — через ~500, Персия — через 630."},
+         {a:["egypt","babylon","assyria","hittites"],b:["gaul","germans","britons","scythians","dacia","numidia","illyria","slavs"],w:"Держав этих народов в бронзовом веке ещё нет."},
+         {lead:1,soft:1,a:["Хаммурапи"],b:["Суппилулиума I"],w:"Лидеров разделяют ~400 лет. Если важна точность лидеров — берите одно из двух окон выше."}]},
+ {id:"iron",n:"Железный век и архаика",f:-1200,t:-500,w:640,
+  d:"После коллапса бронзового века: Ассирия, финикийцы и их колонии, греческие полисы, Рим, скифы, в конце — Персия.",
+  pre:[{n:"«Век Ассирии», ок. 700–630",ids:["egypt","assyria","babylon","greece","carthage","rome","scythians","macedon","gaul"],note:"Вавилон под властью Ассирии; галлы — гальштат (натяжка)"},
+       {n:"«Подъём Персии», ок. 550–500",ids:["persia","egypt","babylon","greece","carthage","rome","scythians","macedon","cyrenaica","gaul"],note:"Вавилон — до 539; Киренаика — греческая Кирена Баттиадов (натяжка: в моде она птолемеевская)"}],
+  rules:[{a:["assyria"],b:["persia"],w:"Ассирия пала в 612–609, держава Ахеменидов возникла в 550: общего года нет (раньше Персия — лишь вассальный Аншан). Ранний пресет — с Ассирией, поздний — с Персией."},
+         {soft:1,a:["babylon"],b:["persia"],w:"Вместе только 550–539, затем Персия поглотила Вавилон. Подходит лишь для сценария «Падение Вавилона»."},
+         {a:["hittites"],b:["persia","cyrenaica","carthage","rome"],w:"От хеттов остались только неохеттские города, последний (Каркемиш) взят Ассирией в 717."},
+         {a:["assyria","babylon","egypt","greece"],b:["parthia","pontus","numidia","dacia","armenia","slavs"],w:"Этих держав ещё нет: на месте Армении — Урарту, в Парфии — мидяне, Понт и Нумидия появятся в III в. до н. э."}]},
+ {id:"classic",n:"Классика",f:-500,t:-323,w:440,
+  d:"Греко-персидские войны, расцвет Афин и Спарты, подъём Македонии, Карфаген на Сицилии, галлы в Италии.",
+  pre:[{n:"«Греко-персидские войны», ок. 490–450",ids:["persia","greece","egypt","carthage","rome","scythians","macedon","gaul","illyria"],note:"Египет — под Персией, с восстаниями; Иллирия — племена (натяжка)"},
+       {n:"«Филипп и Александр», ок. 360–330",ids:["persia","greece","macedon","egypt","carthage","rome","scythians","illyria","gaul"],note:"Египет независим до 343"}],
+  rules:[{a:["persia"],b:["babylon","assyria"],w:"Вавилон с 539 — сатрапия Персии, Ассирии нет с 609."},
+         {a:["persia"],b:["parthia"],w:"Парфия здесь — сатрапия Ахеменидов; держава Аршакидов появится только в 247 до н. э. на той же земле."},
+         {soft:1,a:["macedon","greece","persia"],b:["pontus","numidia","armenia","dacia","cyrenaica"],w:"Понт, Нумидия, Армения Арташесидов, держава даков и птолемеевская Киренаика — III–I вв. до н. э.; сейчас на их месте сатрапии, племена и греческая Кирена."},
+         {a:["hittites"],b:["macedon"],w:"Классический анахронизм: между падением Хаттусы и Филиппом II — 820 лет."}]},
+ {id:"hell",n:"Эллинизм",f:-323,t:-30,w:600,
+  d:"Наследники Александра, Пунические войны, подъём Рима; на востоке — Парфия, Понт и Армения.",
+  pre:[{n:"«Диадохи и Пунические войны», ок. 280–200",ids:["macedon","greece","egypt","cyrenaica","carthage","rome","parthia","pontus","illyria","gaul","scythians"],note:"Персия — только в роли Селевкидов (натяжка); Египет и Киренаика — обе птолемеевские"},
+       {n:"«Митридатовы войны», ок. 100–60",ids:["rome","pontus","armenia","parthia","egypt","numidia","dacia","gaul","scythians","britons","germans"],note:"Даки — Буребиста; германцы — кимвры и свевы"}],
+  rules:[{a:["persia"],b:["parthia","pontus","armenia"],w:"Ахемениды кончились в 330; Парфия, Понт и Армения выросли на их бывших землях. Вместе — только если Персия играет роль Селевкидов."},
+         {soft:1,a:["egypt"],b:["cyrenaica"],w:"Обе державы — птолемеевские: Береника II браком (246) вернула Кирену Египту. Раздельно они жили в 276–246 (Магас) и 163–145, ок. 105–96."},
+         {a:["carthage","macedon","illyria"],b:["dacia"],w:"Держава даков (Буребиста, ок. 82) возникла после гибели Карфагена (146), Македонии и Иллирии (168)."},
+         {lead:1,soft:1,a:["Ганнибал","Филипп II","Тевта"],b:["Митридат VI","Тигран II","Верцингеториг"],w:"Лидеры разных половин эпохи: от Ганнибала до Митридата VI — больше века."},
+         {a:["assyria","babylon","hittites"],b:["rome","parthia","macedon"],w:"Древние державы Месопотамии и Анатолии давно исчезли."}]},
+ {id:"roman",n:"Рим и поздняя античность",f:-30,t:500,w:640,
+  d:"Римский мир от Августа до конца Западной империи. Независимы лишь Парфия (затем Сасаниды), Армения, германцы, даки (до 106), север Британии и степь.",
+  pre:[{n:"«Pax Romana», ок. 1–106",ids:["rome","parthia","armenia","dacia","germans","britons","scythians"],note:"Можно добавить Понт как клиентское царство (до 62) — с натяжкой"},
+       {n:"«Конец античности», ок. 375–476",ids:["rome","armenia","germans","britons","slavs"],note:"Славяне — анты Божа (натяжка); Персию можно взять в роли Сасанидов (натяжка, проверка её отметит)"}],
+  rules:[{a:["parthia"],b:["persia"],w:"Одна земля и одна столица — Ктесифон: в 224 Сасаниды сменили Аршакидов. До 224 — Парфия, после — Персия в роли Сасанидов."},
+         {a:["dacia","pontus","scythians"],b:["slavs"],w:"Даки как держава кончились в 106, клиентский Понт — в 62, крымские скифы — в сер. III в.; славяне известны с VI в."},
+         {soft:1,a:["rome"],b:["egypt","greece","macedon","carthage","gaul","numidia","cyrenaica","illyria"],w:"Всё это — уже римские провинции. Вместе с Римом — только в сценарии «распад империи»."},
+         {a:["babylon","assyria","hittites"],b:["rome","parthia","armenia"],w:"Вне эпохи."}]}
+];
+var STUB = {n:"после 500",f:500,t:700,w:130};
+
+/* Пары «одна земля / вассал» — предупреждение в проверке */
+var SAME = [
+ ["persia","parthia","Одна земля: Парфия выросла на месте державы Ахеменидов (их разделяют 83 года)."],
+ ["egypt","cyrenaica","Обе — птолемеевские; раздельно только в 276–246 и позднее при отдельных правителях Кирены."],
+ ["babylon","persia","Персия поглотила Вавилон в 539: вместе лишь 11 лет."],
+ ["greece","macedon","Совместимы, но с 338 Греция под гегемонией Македонии."],
+ ["armenia","parthia","С 66 н. э. в Армении правят Аршакиды — младшая ветвь парфянской династии."]
+];
+
+var CHAINS = [
+ {n:"Месопотамия и Иран",c:[["sumer"],[-1894,"babylon"],["/assyria"],[-612,"media"],[-539,"persia"],[-330,"macedon"],[-312,"seleucids"],[-141,"parthia"],[224,"sasanids"]]},
+ {n:"Египет",c:[["egypt"],[-525,"persia"],[-404,"egypt"],[-343,"persia"],[-332,"macedon"],[-305,"egypt","Птолемеи"],[-30,"rome"]]},
+ {n:"Анатолия и Кавказ",c:[["hittites"],[-1180,null,"неохеттские царства"],[-717,"assyria"],["|"],["urartu"],[-570,"armenia"],[428,"sasanids"],["|"],["pontus"],[-63,"rome"]]},
+ {n:"Греция и Балканы",c:[["greece","микенцы"],[-800,"greece","полисы"],[-338,"macedon"],[-168,"rome"],["|"],["illyria"],[-168,"rome"],["|"],["dacia"],[106,"rome"],[271,"goths"]]},
+ {n:"Северная Африка",c:[["phoenicia"],[-814,"carthage"],[-146,"rome"],[439,"vandals"],[534,"rome","Восточная империя"],["|"],["numidia"],[-46,"rome"],["|"],["cyrenaica","Кирена"],[-322,"egypt","Птолемеи"],[-96,"rome"]]},
+ {n:"Западная и Северная Европа",c:[["gaul"],[-52,"rome"],[486,"franks"],["|"],["britons"],[43,"rome"],[410,"britons"],[450,"anglosax"],["|"],["germans"],[476,null,"германские королевства"]]},
+ {n:"Степь и Восточная Европа",c:[["scythians"],[-200,"sarmatians"],[250,"goths"],[375,"huns"],["|"],["slavs","анты Божа (ок. 380)"],[500,"slavs","склавины и анты VI в."]]}
+];
+
+/* ============================== HELPERS ============================== */
+function fy(y){ return y<0 ? (-y)+" до н. э." : y+" н. э."; }
+function fr(a,b){
+  if(a===b) return fy(a);
+  if(a<0&&b<0) return (-a)+"–"+(-b)+" до н. э.";
+  if(a>0&&b>0) return a+"–"+b+" н. э.";
+  return fy(a)+" – "+fy(b);
+}
+function frs(a,b){ if(a<0&&b<0) return (-a)+"–"+(-b); return fr(a,b); }
+function yrs(n){ var m=n%100, k=n%10; return n+" "+((m>10&&m<20)?"лет":k===1?"год":(k>=2&&k<=4)?"года":"лет"); }
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+function el(tag,cls,html){ var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; }
+function regC(r){ return "var(--r-"+r+")"; }
+function store(k,v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v); }catch(e){ return null; } return null; }
+function overlap(a1,a2,b1,b2){ return Math.min(a2,b2)-Math.max(a1,b1); }
+function pairStatus(a,b){
+  var o=overlap(a.s,a.e,b.s,b.e);
+  if(o>=0) return {k:"ok",o:o,f:Math.max(a.s,b.s),t:Math.min(a.e,b.e)};
+  var ox=overlap(a.xs,a.xe,b.xs,b.xe);
+  if(ox>=0) return {k:"ext",o:ox,f:Math.max(a.xs,b.xs),t:Math.min(a.xe,b.xe),gap:-o};
+  return {k:"no",gap:-o};
+}
+function nm(id){ return BY[id]?BY[id].n:id; }
+
+/* ============================== STATE ============================== */
+var S = {scale:"era", sort:"chrono", ctx:true, all:false, sel:null};
+var X, PW;
+function buildScale(){
+  var segs=[], acc=0, list=ERAS.concat([STUB]);
+  if(S.scale==="lin"){
+    var k=0.64; list.forEach(function(e){ segs.push({f:e.f,t:e.t,x0:acc,w:(e.t-e.f)*k}); acc+=(e.t-e.f)*k; });
+  } else {
+    list.forEach(function(e){ segs.push({f:e.f,t:e.t,x0:acc,w:e.w}); acc+=e.w; });
+  }
+  PW=Math.round(acc);
+  X=function(y){
+    if(y<=segs[0].f) return 0;
+    for(var i=0;i<segs.length;i++){ var s=segs[i]; if(y<=s.t) return s.x0+(y-s.f)/(s.t-s.f)*s.w; }
+    return PW;
+  };
+  return segs;
+}
+function ticks(){
+  if(S.scale==="lin"){ var a=[]; for(var y=-3500;y<=500;y+=250){ a.push(y===0?1:y); } a.push(600,700); return a; }
+  return [-3500,-3000,-2500,-2000,-1500,-1200,-1100,-1000,-900,-800,-700,-600,-500,-450,-400,-350,-300,-250,-200,-150,-100,-50,1,100,200,300,400,500,600,700];
+}
+
+/* ============================== CHART ============================== */
+var inner=document.getElementById("inner"), chart=document.getElementById("chart");
+var rowsEls={}, svg, bodyEl;
+
+function sortedRows(){
+  var list=N.filter(function(x){ return S.ctx || x.g!=="c"; });
+  var byStart=function(a,b){ return (a.xs-b.xs)||(a.s-b.s); };
+  if(S.sort==="chrono") return [{rows:list.slice().sort(byStart)}];
+  if(S.sort==="region") return REG_ORDER.map(function(r){ return {h:REG[r].n,rows:list.filter(function(x){return x.r===r;}).sort(byStart)}; }).filter(function(g){return g.rows.length;});
+  var g=[{h:"Нации игры",rows:list.filter(function(x){return x.g==="v";}).sort(byStart)},{h:"Нации Mare Nostrum",rows:list.filter(function(x){return x.g==="m";}).sort(byStart)}];
+  if(S.ctx) g.push({h:"Фоновые державы",rows:list.filter(function(x){return x.g==="c";}).sort(byStart)});
+  return g;
+}
+
+function render(){
+  var segs=buildScale();
+  var lab=getComputedStyle(document.documentElement).getPropertyValue("--lab").trim()||"176px";
+  inner.innerHTML="";
+  inner.style.width="calc("+lab+" + "+PW+"px)";
+  /* axis */
+  var axis=el("div","axis"); var corner=el("div","corner","Держава<br><span style='font-size:11px'>годы до н. э., если не указано «н. э.»</span>");
+  var ap=el("div","axisplot"); ap.style.width=PW+"px";
+  ERAS.concat([STUB]).forEach(function(e,i){
+    var x0=X(e.f), x1=X(e.t);
+    var d=el("div","eraname",esc(e.n)+" <small>"+(e===STUB?"":esc(fr(e.f,e.t)))+"</small>");
+    d.style.left=x0+"px"; d.style.width=(x1-x0)+"px"; d.title=e.n+": "+fr(e.f,e.t);
+    if(e!==STUB) d.addEventListener("click",function(){ var c=document.getElementById("era-"+e.id); if(c) c.scrollIntoView({behavior:"smooth",block:"start"}); });
+    ap.appendChild(d);
+  });
+  ticks().forEach(function(y,i){ var t=el("div","tick", y<0? String(-y) : y+"<i> н. э.</i>"); t.style.left=(X(y)+(i===0?3:0))+"px"; if(i===0) t.style.transform="none"; ap.appendChild(t); });
+  axis.appendChild(corner); axis.appendChild(ap); inner.appendChild(axis);
+  /* body */
+  bodyEl=el("div","body"); inner.appendChild(bodyEl);
+  var bands=el("div","bands"); bands.style.left=lab; bands.style.width=PW+"px";
+  ERAS.forEach(function(e,i){ var b=el("div","band"); b.style.left=X(e.f)+"px"; b.style.width=(X(e.t)-X(e.f))+"px"; b.style.background=i%2?"var(--band-b)":"var(--band-a)"; bands.appendChild(b); });
+  var st=el("div","band stub"); st.style.left=X(STUB.f)+"px"; st.style.width=(X(STUB.t)-X(STUB.f))+"px"; bands.appendChild(st);
+  ticks().forEach(function(y){ var g=el("div","gl"); g.style.left=X(y)+"px"; bands.appendChild(g); });
+  bodyEl.appendChild(bands);
+  svg=document.createElementNS("http://www.w3.org/2000/svg","svg"); svg.setAttribute("class","links"); svg.style.left=lab; svg.setAttribute("aria-hidden","true");
+  bodyEl.appendChild(svg);
+  rowsEls={};
+  sortedRows().forEach(function(grp){
+    if(grp.h){ var h=el("div","row hdr"); h.appendChild(el("div","lab",esc(grp.h))); var tr=el("div","track"); tr.style.width=PW+"px"; h.appendChild(tr); bodyEl.appendChild(h); }
+    grp.rows.forEach(function(x){ bodyEl.appendChild(makeRow(x)); });
+  });
+  applySel();
+  requestAnimationFrame(drawLinks);
+}
+
+function makeRow(x){
+  var ctx=x.g==="c";
+  var row=el("div","row"+(ctx?" ctx":"")); row.dataset.id=x.id; row.style.setProperty("--c",regC(x.r));
+  row.setAttribute("tabindex","0"); row.setAttribute("role","button");
+  row.setAttribute("aria-label",x.n+", "+x.sL+" – "+x.eL);
+  var tag = x.g==="m" ? "<span class='tag mn'>MN</span>" : x.g==="v" ? "<span class='tag'>игра</span>" : "";
+  var lab=el("div","lab","<b>"+(ctx?"":"<span class='dot'></span>")+esc(x.n)+tag+"</b><span class='sub'>"+esc(shortRange(x))+"</span>");
+  row.appendChild(lab);
+  var tr=el("div","track"); tr.style.width=PW+"px";
+  var lastEnd=-1e9;
+  x.ph.forEach(function(p){
+    var d=el("div","ph k-"+p[2]); var x0=X(p[0]), x1=X(Math.min(p[1],700));
+    d.style.left=x0+"px"; d.style.width=Math.max(2,x1-x0)+"px";
+    d.title=(p[3]?p[3]+": ":"")+fr(p[0],p[1])+(ctx?"":" ("+KIND[p[2]]+")");
+    tr.appendChild(d); lastEnd=Math.max(lastEnd,x1);
+  });
+  /* подпись дат на основном отрезке */
+  var cx0=X(x.s), cx1=X(Math.min(x.e,700)), w=cx1-cx0;
+  var txt = x.e>=700 ? (x.s<0?(-x.s)+" до н. э. →":x.s+" →") : fr(x.s,x.e);
+  if(ctx){ /* даты фоновых держав — в подписи строки */ }
+  else if(w>=118){ var pl=el("div","pill",esc(txt)); pl.style.left=(cx0+4)+"px"; pl.style.maxWidth=(w-8)+"px"; tr.appendChild(pl); }
+  else if(w>=54){ var pl2=el("div","pill",esc(compact(x))); pl2.style.left=(cx0+3)+"px"; pl2.style.maxWidth=(w-6)+"px"; tr.appendChild(pl2); }
+  if(x.es && cx1<PW-50){ var en=el("div","endl",esc(x.es)); en.style.left=(cx1+5)+"px"; tr.appendChild(en); }
+  (x.ldr||[]).forEach(function(l){
+    var a=X(l.f), b=X(Math.min(l.t,700)); var m=el("div","ldr"); m.style.left=(a-(b-a<4?2:0))+"px"; m.style.width=Math.max(4,b-a)+"px"; m.title=l.n+": "+l.l; tr.appendChild(m);
+  });
+  row.appendChild(tr);
+  row.addEventListener("click",function(){ select(x.id===S.sel?null:x.id); });
+  row.addEventListener("keydown",function(ev){ if(ev.key==="Enter"||ev.key===" "){ ev.preventDefault(); select(x.id===S.sel?null:x.id); } });
+  rowsEls[x.id]=row;
+  return row;
+}
+function shortRange(x){ return (x.sL||"")+" – "+(x.eL||""); }
+function compact(x){ var a=x.s<0?-x.s:x.s, b=x.e<0?-x.e:x.e; return a+"–"+b; }
+
+function relatedIds(id){
+  var r={}; E.forEach(function(e){ if(e[0]===id) r[e[1]]=1; if(e[1]===id) r[e[0]]=1; }); return r;
+}
+function applySel(){
+  var rel = S.sel? relatedIds(S.sel) : null;
+  Object.keys(rowsEls).forEach(function(id){
+    var r=rowsEls[id];
+    r.classList.toggle("sel",id===S.sel);
+    r.classList.toggle("rel",!!(rel&&rel[id]));
+    r.classList.toggle("dim",!!(S.sel&&id!==S.sel&&!(rel&&rel[id])));
+    r.setAttribute("aria-pressed",id===S.sel?"true":"false");
+  });
+}
+
+function drawLinks(){
+  if(!svg||!bodyEl) return;
+  var H=bodyEl.offsetHeight; svg.setAttribute("width",PW); svg.setAttribute("height",H); svg.setAttribute("viewBox","0 0 "+PW+" "+H);
+  var NS="http://www.w3.org/2000/svg", out=[];
+  var cs=getComputedStyle(document.documentElement);
+  var cAcc=cs.getPropertyValue("--accent").trim(), cMut=cs.getPropertyValue("--ink-3").trim();
+  svg.innerHTML="";
+  E.forEach(function(e){
+    var on = S.sel && (e[0]===S.sel||e[1]===S.sel);
+    if(!S.all && !on) return;
+    var ra=rowsEls[e[0]], rb=rowsEls[e[1]]; if(!ra||!rb) return;
+    var ya=ra.offsetTop+ra.offsetHeight/2, yb=rb.offsetTop+rb.offsetHeight/2, x=X(e[2]);
+    var dir=yb>ya?1:-1, half=(rb.classList.contains("ctx")?7:12);
+    var y2=yb-dir*half, col=e[3]==="s"?cMut:cAcc;
+    var op = on?1:(S.sel?0.18:0.5), sw=on?1.8:1.2;
+    var ln=document.createElementNS(NS,"path");
+    ln.setAttribute("d","M"+x+" "+ya+" L"+x+" "+y2);
+    ln.setAttribute("stroke",col); ln.setAttribute("stroke-width",sw); ln.setAttribute("fill","none"); ln.setAttribute("opacity",op);
+    if(e[3]==="h") ln.setAttribute("stroke-dasharray","5 4");
+    if(e[3]==="s") ln.setAttribute("stroke-dasharray","1.5 3.5");
+    var hd=document.createElementNS(NS,"path");
+    hd.setAttribute("d","M"+(x-4.5)+" "+(y2-dir*7)+" L"+x+" "+y2+" L"+(x+4.5)+" "+(y2-dir*7)+" Z");
+    hd.setAttribute("fill",col); hd.setAttribute("opacity",op);
+    var dt=document.createElementNS(NS,"circle"); dt.setAttribute("cx",x); dt.setAttribute("cy",ya); dt.setAttribute("r",on?3:2.2); dt.setAttribute("fill",col); dt.setAttribute("opacity",op);
+    svg.appendChild(ln); svg.appendChild(hd); svg.appendChild(dt);
+  });
+}
+
+/* ============================== PANEL ============================== */
+var panel=document.getElementById("panel");
+function select(id,scroll){
+  S.sel=id; applySel(); drawLinks();
+  if(!id){ panel.hidden=true; return; }
+  var x=BY[id]; if(!x) return;
+  if(rowsEls[id] && scroll!==false){
+    var r=rowsEls[id], lab=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--lab"))||176;
+    var top=r.offsetTop-chart.clientHeight/3; chart.scrollTo({top:Math.max(0,top),left:Math.max(0,X(x.s)-60),behavior:"smooth"});
+  }
+  var h="<button class='x' type='button' aria-label='Закрыть'>×</button>";
+  h+="<h3>"+esc(x.n)+"</h3><div class='meta'>"+(x.t?"<span class='mono'>"+esc(x.t)+"</span> · ":"")+(x.g==="m"?"нация Mare Nostrum":x.g==="v"?"нация игры":"фоновая держава, в игре нет")+" · "+esc(REG[x.r].n)+"</div>";
+  h+="<div class='dates'>"+esc(x.sL)+" — "+esc(x.eL)+"</div>";
+  h+="<dl>";
+  if(x.note) h+="<dd style='margin-top:6px'>"+esc(x.note)+"</dd>";
+  if(x.cap) h+="<dt>Столицы</dt><dd>"+esc(x.cap)+"</dd>";
+  if(x.ph && x.g!=="c"){ h+="<dt>Этапы</dt><dd><ul>"+x.ph.map(function(p){ return "<li><span class='sw k-"+p[2]+"' style='--c:"+regC(x.r)+";width:14px;height:9px;vertical-align:0'></span> "+esc(fr(p[0],p[1]))+": "+esc(p[3])+"</li>"; }).join("")+"</ul></dd>"; }
+  if(x.ldr) h+="<dt>Лидер"+(x.ldr.length>1?"ы":"")+" Mare Nostrum</dt><dd>"+x.ldr.map(function(l){return "<b>"+esc(l.n)+"</b> — "+esc(l.l);}).join("<br>")+"</dd>";
+  if(x.end) h+="<dt>Чем кончилось</dt><dd>"+esc(x.end)+"</dd>";
+  if(x.succ) h+="<dt>Преемники</dt><dd>"+esc(x.succ)+"</dd>";
+  var ev=E.filter(function(e){return e[0]===id||e[1]===id;}).sort(function(a,b){return a[2]-b[2];});
+  if(ev.length){
+    h+="<dt>Связи</dt><dd>"+ev.map(function(e){
+      var arrow = e[3]==="s"?"⇢":"→";
+      return "<div class='ev'><span class='yr'>"+esc(fy(e[2]))+"</span><span><a class='chip plain' style='--c:"+regC(BY[e[0]].r)+";padding:0 8px;margin:0' data-go='"+e[0]+"'>"+esc(nm(e[0]))+"</a> <span class='ar'>"+arrow+"</span> <a class='chip plain' style='--c:"+regC(BY[e[1]].r)+";padding:0 8px;margin:0' data-go='"+e[1]+"'>"+esc(nm(e[1]))+"</a><br><span class='muted'>"+esc(e[4])+" · "+ETYPE[e[3]]+"</span></span></div>";
+    }).join("")+"</dd>";
+  }
+  if(x.g!=="c"){
+    var eras=ERAS.map(function(er){ var o=overlap(x.s,x.e,er.f,er.t), ox=overlap(x.xs,x.xe,er.f,er.t); return o>0?esc(er.n):(ox>0?esc(er.n)+" <span class='muted'>(с натяжкой)</span>":null); }).filter(Boolean);
+    h+="<dt>Эпохи</dt><dd>"+(eras.join(", ")||"—")+"</dd>";
+  }
+  if(x.disp) h+="<dt>Спорно</dt><dd>"+esc(x.disp)+"</dd>";
+  if(x.mod) h+="<dt>В модпаке</dt><dd>"+esc(x.mod)+"</dd>";
+  h+="</dl>";
+  panel.innerHTML=h; panel.hidden=false; panel.scrollTop=0;
+  panel.querySelector(".x").addEventListener("click",function(){ select(null); });
+  panel.querySelectorAll("[data-go]").forEach(function(a){ a.style.cursor="pointer"; a.addEventListener("click",function(){ goTo(a.getAttribute("data-go")); }); });
+}
+function goTo(id){
+  if(BY[id] && BY[id].g==="c" && !S.ctx){ S.ctx=true; document.getElementById("ctxBtn").setAttribute("aria-pressed","true"); render(); }
+  select(id);
+  chart.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+document.addEventListener("keydown",function(e){ if(e.key==="Escape" && !panel.hidden) select(null); });
+
+/* ============================== ERAS ============================== */
+function chipFor(id,extra,cls){
+  var x=BY[id]; return "<a class='chip "+(cls||"")+"' data-go='"+id+"' style='--c:"+regC(x.r)+"' tabindex='0'><span class='dot'></span>"+esc(x.n)+(extra?" <small>"+esc(extra)+"</small>":"")+"</a>";
+}
+function renderEras(){
+  var box=document.getElementById("eras"); box.innerHTML="";
+  ERAS.forEach(function(er){
+    var alive=[], stretch=[];
+    PLAY.slice().sort(function(a,b){return a.s-b.s;}).forEach(function(x){
+      var f=Math.max(x.s,er.f), t=Math.min(x.e,er.t);
+      if(t-f>0) alive.push(chipFor(x.id, (f===er.f&&t===er.t)?"":frs(f,t)));
+      else { var fx=Math.max(x.xs,er.f), tx=Math.min(x.xe,er.t); if(tx-fx>0) stretch.push(chipFor(x.id,"",'st')); }
+    });
+    var c=el("div","card"); c.id="era-"+er.id;
+    var h="<h3>"+esc(er.n)+"</h3><div class='rng'>"+esc(fr(er.f,er.t))+"</div><p>"+esc(er.d)+"</p>";
+    h+="<h4>Исторически живы</h4><div>"+(alive.join("")||"<span class='muted'>—</span>")+"</div>";
+    if(stretch.length) h+="<h4>С натяжкой</h4><div class='muted' style='font-size:14px'>предшественники, племена или остатки того же народа</div><div>"+stretch.join("")+"</div>";
+    h+="<h4>Готовые составы</h4>";
+    er.pre.forEach(function(p,i){
+      h+="<div class='preset'><span class='pn'>"+esc(p.n)+"</span> <button class='btn' type='button' style='font-size:13px;padding:1px 10px;margin-left:4px' data-load='"+er.id+":"+i+"'>проверить</button><div>"+p.ids.map(function(id){return chipFor(id);}).join("")+"</div>"+(p.note?"<div class='pnote'>"+esc(p.note)+"</div>":"")+"</div>";
+    });
+    h+="<h4>Не вместе</h4>";
+    er.rules.forEach(function(r){
+      var side=function(arr){ return arr.map(function(v){ return r.lead? "<b>"+esc(v)+"</b>" : esc(nm(v)); }).join(", "); };
+      h+="<div class='rule"+(r.soft?" soft":"")+"'><span class='vs'>"+side(r.a)+"</span><span class='x'>✕</span><span class='vs'>"+side(r.b)+"</span>"+(r.lead?" <span class='muted'>(лидеры)</span>":"")+"<span class='why'>"+esc(r.w)+"</span></div>";
+    });
+    c.innerHTML=h; box.appendChild(c);
+  });
+  box.querySelectorAll("[data-go]").forEach(function(a){ a.addEventListener("click",function(){ goTo(a.getAttribute("data-go")); }); a.addEventListener("keydown",function(e){ if(e.key==="Enter"){ goTo(a.getAttribute("data-go")); } }); });
+  box.querySelectorAll("[data-load]").forEach(function(b){ b.addEventListener("click",function(){ var p=b.getAttribute("data-load").split(":"); loadPreset(p[0],+p[1]); }); });
+}
+
+/* ============================== CHAINS ============================== */
+function renderChains(){
+  var box=document.getElementById("chains"); box.innerHTML="";
+  CHAINS.forEach(function(ch){
+    var h="<b>"+esc(ch.n)+"</b> ";
+    ch.c.forEach(function(it,i){
+      if(it[0]==="|"){ h+="<span class='muted'> · </span>"; return; }
+      if(typeof it[0]==="string"){
+        if(it[0].charAt(0)==="/"){ h+=" <span class='muted'>и</span> "+link(it[0].slice(1)); return; }
+        h+=link(it[0],it[1]); return;
+      }
+      h+="<span class='ar'>→</span><span class='y'>("+esc(it[0]<0?(-it[0])+" до н. э.":it[0]+" н. э.")+")</span> "+(it[1]?link(it[1],it[2]):"<i>"+esc(it[2])+"</i>")+" ";
+    });
+    var d=el("div","chain",h); box.appendChild(d);
+  });
+  function link(id,label){ return "<a data-go='"+id+"' tabindex='0'>"+esc(label||nm(id))+"</a>"; }
+  box.querySelectorAll("[data-go]").forEach(function(a){ a.addEventListener("click",function(){ goTo(a.getAttribute("data-go")); }); a.addEventListener("keydown",function(e){ if(e.key==="Enter") goTo(a.getAttribute("data-go")); }); });
+}
+
+/* ============================== CHECKER ============================== */
+var PICK={};
+(function(){ var s=store("mn-chron-pick"); if(s){ s.split(",").forEach(function(id){ if(BY[id]&&BY[id].g!=="c") PICK[id]=1; }); } })();
+function renderPick(){
+  var box=document.getElementById("pick"); box.innerHTML="";
+  PLAY.slice().sort(function(a,b){return a.s-b.s;}).forEach(function(x){
+    var b=el("button","chip"+(PICK[x.id]?" on":""),"<span class='dot'></span>"+esc(x.n)); b.type="button";
+    b.style.setProperty("--c",regC(x.r)); b.setAttribute("aria-pressed",PICK[x.id]?"true":"false");
+    b.addEventListener("click",function(){ if(PICK[x.id]) delete PICK[x.id]; else PICK[x.id]=1; savePick(); renderPick(); check(); });
+    box.appendChild(b);
+  });
+  var pb=document.getElementById("presetBtns"); pb.innerHTML="";
+  ERAS.forEach(function(er){ er.pre.forEach(function(p,i){ var b=el("button","btn",esc(er.n.split(" ")[0])+" "+(i+1)); b.type="button"; b.title=p.n; b.style.fontSize="13px"; b.addEventListener("click",function(){ loadPreset(er.id,i,true); }); pb.appendChild(b); }); });
+}
+function savePick(){ store("mn-chron-pick",Object.keys(PICK).join(",")); }
+function loadPreset(eid,i,stay){
+  var er=ERAS.filter(function(e){return e.id===eid;})[0]; if(!er) return;
+  PICK={}; er.pre[i].ids.forEach(function(id){ PICK[id]=1; }); savePick(); renderPick(); check();
+  if(!stay) document.querySelector(".checker").scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.getElementById("clearBtn").addEventListener("click",function(){ PICK={}; savePick(); renderPick(); check(); });
+function check(){
+  var ids=Object.keys(PICK), res=document.getElementById("res");
+  if(ids.length<2){ res.innerHTML="<p class='muted'>Выберите хотя бы две нации.</p>"; return; }
+  var xs=ids.map(function(id){return BY[id];});
+  var f=Math.max.apply(null,xs.map(function(x){return x.s;})), t=Math.min.apply(null,xs.map(function(x){return x.e;}));
+  var fx=Math.max.apply(null,xs.map(function(x){return x.xs;})), tx=Math.min.apply(null,xs.map(function(x){return x.xe;}));
+  var h="";
+  if(t>=f) h+="<div class='win'><span class='g'>Общее окно:</span> "+esc(fr(f,Math.min(t,700)))+"</div><p class='muted'>Все выбранные державы существовали одновременно.</p>";
+  else if(tx>=fx) h+="<div class='win'><span class='w'>Только с натяжкой:</span> "+esc(fr(fx,tx))+"</div><p class='muted'>Общего окна у самих держав нет; совпадают лишь предшественники или остатки.</p>";
+  else h+="<div class='win'><span class='b'>Общего окна нет</span></div>";
+  var best=ERAS.map(function(er){ var n=xs.filter(function(x){return overlap(x.s,x.e,er.f,er.t)>0;}).length; return {er:er,n:n}; }).sort(function(a,b){return b.n-a.n;})[0];
+  h+="<p>Лучше всего подходит эпоха <b>"+esc(best.er.n)+"</b>: живы "+best.n+" из "+xs.length+".</p>";
+  var items=[];
+  for(var i=0;i<xs.length;i++) for(var j=i+1;j<xs.length;j++){
+    var a=xs[i], b=xs[j], st=pairStatus(a,b);
+    if(st.k==="no") items.push({w:3,h:"<span class='b'>✕ "+esc(a.n)+" — "+esc(b.n)+"</span>: не пересекались, разрыв ~"+yrs(st.gap)+"."});
+    else if(st.k==="ext") items.push({w:2,h:"<span class='w'>≈ "+esc(a.n)+" — "+esc(b.n)+"</span>: державы разминулись на ~"+yrs(st.gap)+"; вместе только с натяжкой ("+esc(fr(st.f,st.t))+")."});
+    else if(st.o<25) items.push({w:1,h:"<span class='w'>! "+esc(a.n)+" — "+esc(b.n)+"</span>: вместе всего "+yrs(st.o||1)+" ("+esc(fr(st.f,st.t))+")."});
+  }
+  SAME.forEach(function(p){ if(PICK[p[0]]&&PICK[p[1]]) items.push({w:1,h:"<span class='w'>! "+esc(nm(p[0]))+" — "+esc(nm(p[1]))+"</span>: "+esc(p[2])}); });
+  items.sort(function(a,b){return b.w-a.w;});
+  h+= items.length? items.map(function(it){return "<div class='item'>"+it.h+"</div>";}).join("") : "<div class='item'><span class='g'>Конфликтов нет.</span></div>";
+  res.innerHTML=h;
+}
+
+/* ============================== MATRIX ============================== */
+function renderMatrix(){
+  var L=PLAY.slice().sort(function(a,b){return a.s-b.s;});
+  var t=document.getElementById("mx"), h="<thead><tr><th></th>"+L.map(function(x){return "<th title='"+esc(x.n)+"'><span>"+esc(x.n)+"</span></th>";}).join("")+"</tr></thead><tbody>";
+  L.forEach(function(a){
+    h+="<tr><th>"+esc(a.n)+"</th>";
+    L.forEach(function(b){
+      if(a===b){ h+="<td><span class='cell self'></span></td>"; return; }
+      var st=pairStatus(a,b);
+      h+="<td><button type='button' class='cell "+st.k+"' data-a='"+a.id+"' data-b='"+b.id+"' aria-label='"+esc(a.n+" и "+b.n)+"'></button></td>";
+    });
+    h+="</tr>";
+  });
+  t.innerHTML=h+"</tbody>";
+  var info=document.getElementById("mxinfo");
+  t.querySelectorAll("button.cell").forEach(function(c){
+    var fn=function(){ var a=BY[c.dataset.a], b=BY[c.dataset.b], st=pairStatus(a,b), s="<b>"+esc(a.n)+" и "+esc(b.n)+"</b>: ";
+      if(st.k==="ok") s+="<span style='color:var(--ok)'>вместе "+esc(fr(st.f,Math.min(st.t,700)))+"</span>";
+      else if(st.k==="ext") s+="<span style='color:var(--warn)'>державы разминулись на ~"+yrs(st.gap)+"; с натяжкой — "+esc(fr(st.f,st.t))+"</span>";
+      else s+="<span style='color:var(--bad)'>не пересекались, разрыв ~"+yrs(st.gap)+"</span>";
+      info.innerHTML=s; };
+    c.addEventListener("click",fn); c.addEventListener("mouseenter",fn); c.addEventListener("focus",fn);
+  });
+}
+
+/* ============================== LEGEND, CONTROLS ============================== */
+function renderLegend(){
+  var h=REG_ORDER.map(function(r){ return "<span><i class='sw' style='--c:"+regC(r)+"'></i>"+esc(REG[r].n)+"</span>"; }).join("");
+  h+="<span style='flex-basis:100%;height:0'></span>";
+  h+="<span><i class='sw' style='--c:var(--ink-2)'></i>держава</span>";
+  h+="<span><i class='sw' style='--c:var(--ink-2);background:color-mix(in srgb,var(--ink-2) 68%,var(--surface))'></i>другой этап</span>";
+  h+="<span><i class='sw' style='background:repeating-linear-gradient(135deg,var(--ink-2) 0 3px,var(--surface) 3px 7px)'></i>под чужой властью</span>";
+  h+="<span><i class='sw' style='background:repeating-linear-gradient(135deg,var(--ink-3) 0 2px,transparent 2px 6px);box-shadow:inset 0 0 0 1px var(--ink-3)'></i>предыстория</span>";
+  h+="<span><i class='sw' style='background:transparent;border:1px dashed var(--ink-3)'></i>после падения</span>";
+  h+="<span><i class='sw' style='height:4px;background:var(--gold)'></i>лидер MN</span>";
+  h+="<span><i class='lk'></i>покорение</span><span><i class='lk h'></i>удар</span><span><i class='lk s'></i>преемство</span>";
+  document.getElementById("legend").innerHTML=h;
+  var j=document.getElementById("eraJump");
+  ERAS.forEach(function(er){ var b=el("button","btn",esc(er.n)); b.type="button"; b.style.fontSize="14px"; b.addEventListener("click",function(){ chart.scrollTo({left:Math.max(0,X(er.f)-4),behavior:"smooth"}); }); j.appendChild(b); });
+}
+function bindSeg(attr,key){
+  document.querySelectorAll("[data-"+attr+"]").forEach(function(b){
+    b.addEventListener("click",function(){
+      S[key]=b.getAttribute("data-"+attr);
+      document.querySelectorAll("[data-"+attr+"]").forEach(function(o){ o.setAttribute("aria-pressed",o===b?"true":"false"); });
+      var sl=chart.scrollLeft; render(); if(key==="sort") chart.scrollLeft=sl;
+    });
+  });
+}
+bindSeg("scale","scale"); bindSeg("sort","sort");
+document.getElementById("ctxBtn").addEventListener("click",function(){ S.ctx=!S.ctx; this.setAttribute("aria-pressed",S.ctx?"true":"false"); if(!S.ctx&&S.sel&&BY[S.sel].g==="c") select(null); render(); });
+document.getElementById("allLinksBtn").addEventListener("click",function(){ S.all=!S.all; this.setAttribute("aria-pressed",S.all?"true":"false"); drawLinks(); });
+
+/* theme */
+var themeBtn=document.getElementById("themeBtn"), THEMES=["auto","light","dark"], TN={auto:"авто",light:"светлая",dark:"тёмная"};
+function setTheme(t){ if(t==="auto") document.documentElement.removeAttribute("data-theme"); else document.documentElement.setAttribute("data-theme",t); themeBtn.textContent="Тема: "+TN[t]; themeBtn.dataset.t=t; store("mn-chron-theme",t); requestAnimationFrame(drawLinks); }
+themeBtn.addEventListener("click",function(){ var i=THEMES.indexOf(themeBtn.dataset.t||"auto"); setTheme(THEMES[(i+1)%3]); });
+setTheme(store("mn-chron-theme")||"auto");
+
+/* панель прячется, пока шкала вне экрана, и возвращается вместе с ней */
+if("IntersectionObserver" in window){ new IntersectionObserver(function(en){ panel.classList.toggle("away",!en[0].isIntersecting); },{threshold:0.05}).observe(chart); }
+var rt; window.addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(function(){ render(); },150); });
+
+buildScale(); renderLegend(); render(); renderEras(); renderChains(); renderPick(); check(); renderMatrix();
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ drawLinks(); });
+})();
+</script>
+
+</body></html>

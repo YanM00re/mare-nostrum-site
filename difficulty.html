@@ -1,29 +1,36 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Mare Nostrum: Сложность</title>
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<meta name="claude:viewport-fit-sides" content="cover">
+<title>Mare Nostrum: Сложность</title>
+<meta name="description" content="Все настройки мода сложности Mare Nostrum 2.20.3: что делает каждая и чем отличается от обычной игры.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-/* Layout: one reading column, wide comparison tables; same bronze-and-sea identity as the Mare Nostrum review, with iron red for the war settings. */
+/* Layout: one reading column with wide comparison tables; bronze-and-sea identity shared with index.html, iron red for war settings. */
 :root{
   --bg:#eef1f2; --surface:#ffffff; --ink:#16232c; --muted:#56666f; --line:#cfd8dc;
-  --sea:#2a5f80; --bronze:#9a6a22; --bronze-soft:#f1e4cc; --iron:#a33a26; --iron-soft:#f6e1dc; --ok:#2f7d5b;
+  --sea:#2a5f80; --bronze:#9a6a22; --bronze-soft:#f1e4cc; --iron:#a33a26; --iron-soft:#f6e1dc;
   --f-display:"Alegreya SC", Georgia, "Times New Roman", serif;
   --f-body:"Alegreya Sans", "Segoe UI", system-ui, sans-serif;
   --f-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme:light;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0f171c; --surface:#16222a; --ink:#e3eaee; --muted:#97a8b1; --line:#2a3a44;
-  --sea:#6fb0d6; --bronze:#d9a755; --bronze-soft:#33291a; --iron:#ee8a72; --iron-soft:#3a201a; --ok:#6cc59b; color-scheme:dark}}
+  --sea:#6fb0d6; --bronze:#d9a755; --bronze-soft:#33291a; --iron:#ee8a72; --iron-soft:#3a201a; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0f171c; --surface:#16222a; --ink:#e3eaee; --muted:#97a8b1; --line:#2a3a44;
-  --sea:#6fb0d6; --bronze:#d9a755; --bronze-soft:#33291a; --iron:#ee8a72; --iron-soft:#3a201a; --ok:#6cc59b; color-scheme:dark}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55}
-.wrap{max-width:1080px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:38px}
+  --sea:#6fb0d6; --bronze:#d9a755; --bronze-soft:#33291a; --iron:#ee8a72; --iron-soft:#3a201a; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding:20px 16px 64px;display:grid;grid-template-columns:minmax(0,1fr);gap:38px}
 h1,h2,h3{font-family:var(--f-display);font-weight:700;text-wrap:balance;margin:0;line-height:1.15}
 h1{font-size:clamp(2.1rem,5vw,3.3rem)} h2{font-size:1.55rem} h3{font-size:1.1rem}
 p{margin:0} ul,ol{margin:0;padding-left:1.2em;display:grid;gap:5px}
+a{color:var(--sea)}
+.site-nav{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 15px var(--f-body);border-bottom:1px solid var(--line);padding-bottom:10px}
+.site-nav a{text-decoration:none;color:var(--muted)}.site-nav a:hover{color:var(--ink)}
+.site-nav a[aria-current="page"]{color:var(--ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--bronze)}
 .kicker,.lab{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze)}
 .lede{max-width:70ch;color:var(--muted);font-size:1.1rem}
 .muted{color:var(--muted)} .small{font-size:.86rem}
@@ -34,6 +41,7 @@ section > p, section > ul, section > ol{max-width:76ch}
 .preset h2{color:var(--iron)}
 .pills{display:flex;flex-wrap:wrap;gap:8px}
 .pill{font-family:var(--f-mono);font-size:.8rem;border:1px solid var(--iron);color:var(--iron);background:var(--surface);border-radius:999px;padding:3px 11px}
+.pill.plain{border-color:var(--line);color:var(--ink)}
 .note{background:var(--bronze-soft);border-left:3px solid var(--bronze);padding:12px 16px;border-radius:0 6px 6px 0;max-width:80ch}
 .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
 table{border-collapse:collapse;width:100%;font-size:.93rem}
@@ -45,49 +53,52 @@ td.hot{color:var(--iron);font-weight:600}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:grid;gap:8px;align-content:start;min-width:0}
 .card.no{border-style:dashed}
-.road{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.step{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--line);border-radius:0 0 8px 8px;padding:12px 14px;display:grid;gap:6px;align-content:start}
-.step.now{border-top-color:var(--iron)}
-.step.big{border-top-color:var(--bronze)}
 code{font-family:var(--f-mono);font-size:.82em;background:var(--bronze-soft);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
 </style>
-<div class="wrap">
+</head><body><main class="wrap">
+<nav class="site-nav" aria-label="Разделы"><a href="./">Обзор</a><a href="difficulty.html" aria-current="page">Сложность</a><a href="chronicle.html">Хроника античности</a></nav>
+
 <header>
-  <p class="kicker">Дополнение к модпаку Mare Nostrum · 2.7 «Альфа» · работает на любой карте</p>
+  <p class="kicker">Mare Nostrum · версия 2.20.3 · работает на любой карте</p>
   <h1>Mare Nostrum: Сложность</h1>
-  <p class="lede">Мод для игрока, которому стало легко на Божестве. ИИ получает сильный старт, стены и надбавку к доходу, ведёт много войн сразу и активно борется за города-государства. Каждая часть — отдельная настройка в окне создания игры, по умолчанию всё выключено.</p>
+  <p class="lede">Мод для игрока, которому стало легко на Божестве. ИИ получает сильный старт, стены и надбавку к доходу, раньше и чаще воюет, штурмует без полководца и борется за города-государства. Каждая часть — отдельная настройка в «Дополнительных параметрах» окна создания игры.</p>
 </header>
+
+<div class="note"><strong>Мод включён — часть настроек уже работает.</strong> По умолчанию стоят: старт «Вызов», стены сразу у ИИ, высокая агрессия, войны «чаще и раньше», вековые враги, активная дипломатия и штурм без генерала. Чтобы получить обычную игру, переключите их на «как в игре», «обычный» или «выключено».</div>
 
 <div class="preset">
   <p class="lab" style="color:var(--iron)">Рекомендуемый набор для опытного игрока</p>
   <h2>«Вызов брата»</h2>
   <div class="pills">
-    <span class="pill">Божество</span><span class="pill">Старт ИИ: вызов по скорости</span><span class="pill">Стены: сразу</span>
-    <span class="pill">Наука и золото ИИ: +30%</span><span class="pill">Агрессия: высокая</span><span class="pill">Дипломатия: активная</span>
+    <span class="pill">Божество</span><span class="pill">Старт ИИ: вызов по скорости</span><span class="pill">Стены: сразу у ИИ</span>
+    <span class="pill">Наука и золото ИИ: +30%</span><span class="pill">Агрессия: высокая</span><span class="pill">Войны: чаще и раньше</span><span class="pill">Дипломатия: активная</span>
   </div>
-  <p class="small">Все бонусы мода добавляются к бонусам Божества: там ИИ уже получает +80% золота и прибавку к науке. Если и этого мало — агрессия «беспощадная» и наука/золото +50%.</p>
+  <p class="small">Бонусы мода добавляются к бонусам Божества: там ИИ уже получает +80% золота и прибавку к науке. Если и этого мало — агрессия «беспощадная», войны «постоянно» и наука/золото +50%.</p>
 </div>
 
 <section>
   <h2>Настройки</h2>
-  <p>Они появляются в «Дополнительных параметрах» окна создания игры, когда мод включён в «Дополнениях».</p>
   <div class="tbl"><table>
     <thead><tr><th>Настройка</th><th>Варианты</th><th>Что делает</th></tr></thead>
     <tbody>
-      <tr><td>Старт ИИ</td><td><strong>обычный</strong> · вызов · вызов по скорости</td><td>После основания столицы каждый ИИ получает ещё 2 поселенцев (итого 3 вместе со стартовым) и 3 воинов; в начале партии — 3000 золота и 3000 влияния. Только для партий, начатых с Древности.</td></tr>
-      <tr><td>Стены ИИ</td><td><strong>как в игре</strong> · сразу</td><td>Города и посёлки ИИ стоят со стенами с первого хода, без «Каменной кладки». В обычной игре ИИ получает стены только на высоких уровнях и после технологии.</td></tr>
+      <tr><td>Старт ИИ</td><td>обычный · <strong>вызов</strong> · вызов по скорости</td><td>После основания столицы каждый ИИ получает ещё 2 поселенцев (итого 3 со стартовым), 3 воинов и командира армии; в начале партии — 3000 золота и 3000 влияния. Только в партии, начатой с Древности.</td></tr>
+      <tr><td>Стены ИИ</td><td>как в игре · <strong>сразу, только у ИИ</strong> · сразу у всех</td><td>Города и посёлки получают древние стены с первого хода, без «Каменной кладки». Вариант «у всех» даёт их и вам.</td></tr>
       <tr><td>Наука и золото ИИ</td><td><strong>+0%</strong> · +15% · +30% · +50%</td><td>Надбавка во всех поселениях ИИ сверх бонусов уровня сложности.</td></tr>
-      <tr><td>Агрессия ИИ</td><td><strong>как в игре</strong> · высокая · беспощадная</td><td>Сколько войн и осад ИИ ведёт одновременно, какими армиями и как ценит войска — подробнее ниже.</td></tr>
-      <tr><td>Дипломатия ИИ</td><td><strong>как в игре</strong> · активная · максимальная</td><td>Как охотно ИИ тратит влияние на города-государства, сюзеренитет, начинания и союзы.</td></tr>
-      <tr><td>Подстройка под игрока</td><td><strong>выключено</strong> · включено</td><td>Эксперимент: пока человек опережает остальных по науке или культуре, все ИИ получают +25% к этому доходу. Можно не включать, пока не решено, нужна ли она.</td></tr>
+      <tr><td>Агрессия ИИ</td><td>как в игре · <strong>высокая</strong> · беспощадная</td><td>Сколько осад ИИ ведёт сразу, какой армией идёт на штурм и как ценит войска — таблица ниже.</td></tr>
+      <tr><td>Войны ИИ</td><td>как в игре · <strong>чаще и раньше</strong> · постоянно</td><td>В обычной игре ИИ объявляет войну, только когда отношения стали враждебными, и армии годами стоят в своих границах. Здесь ИИ воюет уже при недружественных (или нейтральных) отношениях, а объявление войны ничего не стоит — и для вас тоже.</td></tr>
+      <tr><td>Вековые враги</td><td>выключено · <strong>включено</strong></td><td>31 пара исторических соперников: Рим и Карфаген, Греция и Персия, Египет и хетты… Отношения между ними портятся каждые 5 ходов.</td></tr>
+      <tr><td>Дипломатия ИИ</td><td>как в игре · <strong>активная</strong> · максимальная</td><td>Как охотно ИИ тратит влияние на города-государства, сюзеренитет, совместные начинания и союзы.</td></tr>
+      <tr><td>Штурм ИИ</td><td>как в игре · <strong>без генерала и осады</strong></td><td>В игре ИИ не штурмует без командира армии, а большой город — ещё и без осадных орудий, поэтому в Древности армии стоят у столиц. С этой настройкой хватает 4 бойцов ближнего боя (всего от 5 отрядов).</td></tr>
+      <tr><td>Руины ИИ</td><td><strong>как в игре</strong> · активнее</td><td>ИИ больше тратит на разведчиков и ценит их втрое выше, поэтому чаще обходит руины и собирает находки.</td></tr>
+      <tr><td>Подстройка под игрока</td><td><strong>выключено</strong> · включено</td><td>Эксперимент: пока вы заметно опережаете остальных по науке или культуре, все ИИ получают +25% к этому доходу.</td></tr>
     </tbody>
   </table></div>
-  <p class="muted small">Жирным — значения по умолчанию: с ними мод ничего не меняет.</p>
+  <p class="muted small">Жирным — значения по умолчанию.</p>
 </section>
 
 <section>
   <h2>Два варианта стартовых денег</h2>
-  <p>«Вызов» даёт ровно 3000 золота и 3000 влияния на любой скорости, как просил заказчик. «Вызов по скорости» умножает их на длительность игры той же встроенной шкалой, которой игра масштабирует свои награды: на марафоне всё стоит дороже, и ровные 3000 там заметно слабее.</p>
+  <p>«Вызов» даёт ровно 3000 золота и 3000 влияния на любой скорости. «Вызов по скорости» умножает их на длительность игры той же шкалой, которой игра масштабирует свои награды: на марафоне всё дороже, и ровные 3000 там заметно слабее. Поселенцы, воины и командир от скорости не зависят.</p>
   <div class="tbl"><table>
     <thead><tr><th>Скорость</th><th>Цены</th><th>Вызов</th><th>Вызов по скорости</th></tr></thead>
     <tbody>
@@ -101,30 +112,48 @@ code{font-family:var(--f-mono);font-size:.82em;background:var(--bronze-soft);pad
       <tr><td>Марафон+++</td><td class="n">×8</td><td class="n">3000</td><td class="n hot">24 000</td></tr>
     </tbody>
   </table></div>
-  <p class="muted small">Поселенцы и воины от скорости не зависят. 3000 влияния на карте Mare Nostrum с ~50 городами-государствами — очень много: ИИ быстро станет сюзереном многих из них.</p>
+  <p class="muted small">3000 влияния на карте Mare Nostrum с ~50 городами-государствами — очень много: ИИ быстро станет сюзереном многих из них.</p>
 </section>
 
 <section>
   <h2>Агрессия ИИ</h2>
-  <p>Мозг ИИ написан в движке игры, мод его не заменяет. Он меняет собственные таблицы ИИ: сколько операций тот ведёт одновременно, какой армией идёт на штурм и насколько ценит войска. «Беспощадная» намеренно выкручена до предела, чтобы увидеть границы системы.</p>
+  <p>Мозг ИИ написан в движке игры, мод его не заменяет. Он меняет собственные таблицы ИИ: сколько операций тот ведёт одновременно, какой армией идёт на штурм и насколько ценит войска. Числа сверены с файлами игры.</p>
   <div class="tbl"><table>
     <thead><tr><th>Параметр</th><th>В игре</th><th>Высокая</th><th>Беспощадная</th></tr></thead>
     <tbody>
-      <tr><td>Осад городов одновременно</td><td class="n">1</td><td class="n">2</td><td class="n hot">10</td></tr>
-      <tr><td>Морских десантов одновременно</td><td class="n">1</td><td class="n">2</td><td class="n hot">5</td></tr>
-      <tr><td>Дополнительных осад на каждую войну</td><td class="n">0</td><td class="n">1</td><td class="n hot">3</td></tr>
-      <tr><td>Минимальный шанс успеха для атаки</td><td class="n">25%</td><td class="n">20%</td><td class="n hot">10%</td></tr>
-      <tr><td>Дальность целей (регион / мир)</td><td class="n">30 / 45</td><td class="n">40 / 60</td><td class="n hot">60 / 90</td></tr>
-      <tr><td>Состав штурмовой армии</td><td>2 ближнего боя, командир</td><td>2 ближнего боя, осадное орудие, командир</td><td class="hot">3 ближнего боя, осадное орудие, командир</td></tr>
-      <tr><td>Ценность отряда в армии</td><td class="n">50</td><td class="n">75</td><td class="n hot">150</td></tr>
-      <tr><td>Ценность командира</td><td class="n">50</td><td class="n">100</td><td class="n hot">250</td></tr>
-      <tr><td>Ценность опыта командиров</td><td class="n">5</td><td class="n">10</td><td class="n hot">25</td></tr>
-      <tr><td>Ценность военных очков наследия</td><td class="n">200</td><td class="n">300</td><td class="n hot">800</td></tr>
-      <tr><td>Бюджет на армию</td><td class="n">—</td><td class="n">+50</td><td class="n hot">+150</td></tr>
-      <tr><td>Склонность объявлять войну</td><td class="n">—</td><td class="n">+25</td><td class="n hot">+100</td></tr>
-      <tr><td>Черта «агрессивный» у всех лидеров</td><td>у некоторых</td><td>как в игре</td><td class="hot">у всех</td></tr>
+      <tr><td>Осад городов одновременно</td><td class="n">1</td><td class="n">4</td><td class="n hot">10</td></tr>
+      <tr><td>Морских десантов одновременно</td><td class="n">1</td><td class="n">3</td><td class="n hot">5</td></tr>
+      <tr><td>Дополнительно осад / десантов на каждую войну</td><td class="n">0 / 0</td><td class="n">1 / 1</td><td class="n hot">3 / 2</td></tr>
+      <tr><td>Минимальный шанс успеха для штурма</td><td class="n">25%</td><td class="n">35%</td><td class="n hot">30%</td></tr>
+      <tr><td>Дальность целей (область / мир), клеток</td><td class="n">30 / 45</td><td class="n">35 / 50</td><td class="n hot">45 / 65</td></tr>
+      <tr><td>Штурмовая армия: бойцов ближнего боя</td><td class="n">от 2</td><td class="n">от 4</td><td class="n hot">от 4</td></tr>
+      <tr><td>Осадные орудия для штурма</td><td>не обязательны (большой город — с ними)</td><td>не обязательны</td><td class="hot">не обязательны</td></tr>
+      <tr><td>Ценность отряда в армии</td><td class="n">50</td><td class="n">80</td><td class="n hot">110</td></tr>
+      <tr><td>Ценность боевой силы армии</td><td class="n">10</td><td class="n">16</td><td class="n hot">22</td></tr>
+      <tr><td>Ценность командира армии</td><td class="n">50</td><td class="n">175</td><td class="n hot">250</td></tr>
+      <tr><td>Ценность опыта командиров</td><td class="n">5</td><td class="n">18</td><td class="n hot">25</td></tr>
+      <tr><td>Ценность обороны городов</td><td class="n">25</td><td class="n">42</td><td class="n hot">50</td></tr>
+      <tr><td>Ценность военных очков наследия</td><td class="n">200</td><td class="n">550</td><td class="n hot">800</td></tr>
+      <tr><td>Бюджет: армия / гарнизоны</td><td class="n">—</td><td class="n">+75 / +25</td><td class="n hot">+110 / +36</td></tr>
+      <tr><td>Черта «агрессивный»</td><td>у некоторых лидеров</td><td>как в игре</td><td class="hot">у всех</td></tr>
     </tbody>
   </table></div>
+  <p class="muted small">Командир армии для штурма нужен и здесь — его снимает настройка «Штурм ИИ: без генерала и осады». Она же ставит шанс успеха 35% и минимум 5 отрядов в армии.</p>
+</section>
+
+<section>
+  <h2>Войны ИИ</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Параметр</th><th>В игре</th><th>Чаще и раньше</th><th>Постоянно</th></tr></thead>
+    <tbody>
+      <tr><td>При каких отношениях ИИ идёт на штурм</td><td>враждебные</td><td>недружественные</td><td class="hot">нейтральные и хуже</td></tr>
+      <tr><td>Соседство границ портит отношения</td><td class="n">−10</td><td class="n">−20</td><td class="n hot">−30</td></tr>
+      <tr><td>Цена объявления войны</td><td class="n">60 влияния*</td><td class="n">0</td><td class="n hot">0</td></tr>
+      <tr><td>Официальная война без штрафа за внезапность (только ИИ)</td><td>нет</td><td>да</td><td class="hot">да</td></tr>
+      <tr><td>Вес вложений в города-государства</td><td class="n">20</td><td class="n">5</td><td class="n hot">0</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted small">* В Древности; в следующих эпохах игра берёт 120 и 180. Мод обнуляет цену во всех эпохах и для всех держав, включая вас. Пока ИИ тратил влияние на города-государства, на объявление войны его не оставалось, — поэтому настройка снижает и эти вложения. Она загружается после «Дипломатии ИИ» и перекрывает её вес вложений в города-государства; сюзеренитет, начинания и союзы остаются как в дипломатии.</p>
 </section>
 
 <section>
@@ -143,47 +172,44 @@ code{font-family:var(--f-mono);font-size:.82em;background:var(--bronze-soft);pad
 </section>
 
 <section>
+  <h2>Вековые враги</h2>
+  <p>Пока у соперника есть его особые войска, отношения портятся: первый раз через 5 ходов после встречи, дальше каждые 5 ходов (±1). Действует в обе стороны.</p>
+  <div class="pills">
+    <span class="pill plain">Рим — Карфаген</span><span class="pill plain">Рим — галлы</span><span class="pill plain">Рим — германцы</span><span class="pill plain">Рим — бритты</span><span class="pill plain">Рим — Иберия</span><span class="pill plain">Рим — иллирийцы</span><span class="pill plain">Рим — даки</span><span class="pill plain">Рим — Понт</span><span class="pill plain">Рим — Армения</span><span class="pill plain">Рим — Парфия</span>
+    <span class="pill plain">Карфаген — Нумидия</span><span class="pill plain">Карфаген — Киренаика</span><span class="pill plain">Карфаген — Иберия</span>
+    <span class="pill plain">Греция — Персия</span><span class="pill plain">Греция — Македония</span><span class="pill plain">Македония — Персия</span><span class="pill plain">Македония — иллирийцы</span><span class="pill plain">Македония — Фракия</span><span class="pill plain">Македония — скифы</span>
+    <span class="pill plain">Фракия — даки</span><span class="pill plain">Персия — скифы</span><span class="pill plain">Персия — Египет</span><span class="pill plain">Персия — Вавилон</span>
+    <span class="pill plain">Египет — хетты</span><span class="pill plain">Египет — Ассирия</span><span class="pill plain">Ассирия — Вавилон</span><span class="pill plain">Ассирия — хетты</span>
+    <span class="pill plain">Армения — Парфия</span><span class="pill plain">Армения — Понт</span><span class="pill plain">Галлы — германцы</span><span class="pill plain">Германцы — славяне</span>
+  </div>
+</section>
+
+<section>
+  <h2>Стены, руины и подстройка</h2>
+  <div class="cards">
+    <div class="card"><p class="lab">стены</p><h3>Сразу с первого хода</h3><p>Каждый город и посёлок держав получает древние стены без «Каменной кладки». «Только у ИИ» — у всех, кроме человека; «у всех» — и у вас. Города-государства не затрагиваются.</p></div>
+    <div class="card"><p class="lab">руины</p><h3>Активнее</h3><p>Бюджет ИИ на разведку +100, ценность разведчика 300 вместо 100.</p></div>
+    <div class="card"><p class="lab">эксперимент</p><h3>Подстройка</h3><p>Бонус +25% к науке или культуре всех ИИ включается, пока вы лидируете по этому доходу (порог в моде — 125%), и выключается, когда отстаёте.</p></div>
+  </div>
+</section>
+
+<section>
   <h2>Что мод может, а чего нет</h2>
   <div class="cards">
-    <div class="card"><p class="lab">может</p><h3>Больше давления</h3><p>ИИ строит больше войск, ведёт несколько осад и войн сразу, ходит на штурм с командиром и осадными орудиями, нападает при меньших шансах и на дальние цели.</p></div>
-    <div class="card"><p class="lab">может</p><h3>Борьба за влияние</h3><p>ИИ тратит влияние на города-государства, сюзеренитет и союзы, а не копит его.</p></div>
-    <div class="card"><p class="lab">может, эксперимент</p><h3>Подстройка</h3><p>Бонусы ИИ включаются, пока человек лидирует, и выключаются, когда он отстаёт.</p></div>
-    <div class="card no"><p class="lab">не может</p><h3>Шахматный расчёт</h3><p>Перебор ходов вперёд и новые тактики требуют переписать ИИ в движке — моду это недоступно. Мы меняем веса и лимиты, и подбираем их партиями.</p></div>
+    <div class="card"><p class="lab">может</p><h3>Больше давления</h3><p>ИИ строит больше войск, ведёт несколько осад и войн сразу, штурмует малыми армиями, нападает на дальние цели и не ждёт враждебных отношений.</p></div>
+    <div class="card"><p class="lab">может</p><h3>Борьба за влияние</h3><p>ИИ тратит влияние на сюзеренитет и союзы, а не копит его.</p></div>
+    <div class="card no"><p class="lab">не может</p><h3>Шахматный расчёт</h3><p>Перебор ходов вперёд и новые тактики требуют переписать ИИ в движке — моду это недоступно. Мод меняет веса и лимиты.</p></div>
   </div>
-  <div class="note"><strong>Как проверяем.</strong> Партии, где играют только ИИ, на карте Mare Nostrum: сколько войн начато, сколько городов захвачено и сколько городов-государств взято под сюзеренитет за 100 ходов — с модом и без. По этим числам подбираем «высокую» и «беспощадную».</div>
 </section>
 
 <section>
   <h2>Установка</h2>
   <ol>
-    <li>Распакуйте <code>MareNostrum-Difficulty-2.7-alpha.zip</code>.</li>
-    <li>Положите папку <code>mn-difficulty</code> в <code>~/Library/Application Support/Civilization VII/Mods/</code>.</li>
+    <li>Скачайте «Только сложность» на <a href="./#download">главной странице</a> и распакуйте <code>MareNostrum-Difficulty-2.20.3-alpha.zip</code>. В полной сборке этот мод уже есть.</li>
+    <li>Положите папку <code>mn-difficulty</code> в <code>~/Library/Application Support/Civilization VII/Mods/</code>. На Windows: <code>%LOCALAPPDATA%\Firaxis Games\Sid Meier's Civilization VII\Mods\</code></li>
     <li>«Дополнения» → включите «Mare Nostrum: Сложность».</li>
     <li>Новая игра → «Дополнительные параметры» → настройки «Сложность: …».</li>
   </ol>
   <p class="muted small">Мод работает и без модпака Mare Nostrum, и вместе с ним. Если что-то пойдёт не так, пригодятся Database.log, Modding.log и Scripting.log из папки Logs игры.</p>
 </section>
-
-<section>
-  <h2>Дальше</h2>
-  <div class="road">
-    <div class="step now"><span class="lab">сейчас</span><strong>Сложность 2.7</strong><span class="small muted">Первая проверка: стартовые бонусы, стены, доход, агрессия и дипломатия.</span></div>
-    <div class="step"><span class="lab">после проверки</span><strong>Подбор агрессии</strong><span class="small muted">Партии только ИИ, подстройка чисел «высокой» и «беспощадной»; решение о подстройке под игрока.</span></div>
-    <div class="step big"><span class="lab">новый мод</span><strong>Вольные города</strong><span class="small muted">Сильные города-государства как настоящие города — ниже.</span></div>
-  </div>
-  <div class="card">
-    <p class="lab">план</p>
-    <h3>Вольные города: города-государства, которые растут</h3>
-    <p>Сейчас город-государство — небольшое поселение, которое не развивается. Когда город-государство захватывает поселение игрока, получается независимый «белый» город с постройками. Идея мода — сделать такие города частью мира с самого начала.</p>
-    <ul>
-      <li><strong>Изначально вольные:</strong> великие города древности — Тир, Сиракузы, Массалия, Коринф, Милет, Родос, Византий, Иерусалим — стартуют полноценными городами: с кварталами, несколькими стенами и населением.</li>
-      <li><strong>Становятся вольными со временем:</strong> город-государство, который долго развивается или долго остаётся сюзеренитетом одной державы, превращается в такой город.</li>
-      <li><strong>Стратегический вес:</strong> вольный город держит перевал, пролив или торговый путь, много стен — его нельзя взять малым войском.</li>
-      <li><strong>Дипломатия:</strong> вольные города учитываются в отношениях держав — за влияние на них борются, их защищают как союзников.</li>
-    </ul>
-    <p class="muted small">Сначала нужно выяснить, как игра создаёт такой независимый город при захвате и можно ли вызвать это для выбранных городов-государств. От этого зависит, какую часть идеи удастся сделать.</p>
-  </div>
-</section>
-</div>
-
-</body></html>
+</main></body></html>
