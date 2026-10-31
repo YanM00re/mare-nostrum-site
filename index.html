@@ -2,52 +2,170 @@
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Mare Nostrum 2.20.3</title>
+<meta name="description" content="Mare Nostrum — мод для Civilization VII: историческая карта Средиземноморья, 15 новых наций, лидеры, морская система и своя сложность.">
+<script>try{var t=localStorage.getItem("mn-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500;700&family=Alegreya+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="site.css">
 <style>
-/* Layout: one reading column — hero line, three facts, what's new, module tables by group, install. Bronze-and-sea identity shared with difficulty.html. */
-:root{--bg:#eef1f2;--surface:#fff;--ink:#16232c;--muted:#56666f;--line:#cfd8dc;--sea:#2a5f80;--bronze:#9a6a22;--bronze-soft:#f1e4cc;
---f-display:"Alegreya SC",Georgia,serif;--f-body:"Alegreya Sans","Segoe UI",system-ui,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--f-body)}
-.wrap{max-width:860px;margin:0 auto;padding:32px 16px 64px;display:flex;flex-direction:column;gap:22px}
-h1,h2{font-family:var(--f-display);margin:0;text-wrap:balance;color:var(--ink)}h1{font-size:40px;line-height:1.1}h2{font-size:22px;display:flex;gap:10px;align-items:baseline}
-.n{font:500 14px var(--f-body);color:var(--muted)}.lead{color:var(--muted);max-width:62ch;margin:6px 0 0}
-.ver{display:inline-block;font:500 13px var(--f-mono);color:var(--bronze);background:var(--bronze-soft);padding:2px 8px;border-radius:4px;margin-bottom:10px}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
-.fact{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--sea);border-radius:8px;padding:12px 14px}
-.fact b{display:block;font:700 26px var(--f-display);color:var(--sea)}.fact span{color:var(--muted);font-size:15px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
-ul,ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
-.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:16px}td{padding:7px 8px;border-top:1px solid var(--line);vertical-align:top}tr:first-child td{border-top:0}
-td.id{font:13px var(--f-mono);color:var(--sea);white-space:nowrap;width:1%}
-.tag{font:500 12px var(--f-body);color:var(--bronze);background:var(--bronze-soft);padding:1px 6px;border-radius:999px;margin-left:4px}
-code{font:14px var(--f-mono);background:var(--bg);padding:1px 5px;border-radius:4px;word-break:break-all}
-a{color:var(--sea)}a:focus-visible{outline:2px solid var(--sea);outline-offset:2px}footer{color:var(--muted);font-size:14px}
-.dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-.btn{display:flex;flex-direction:column;gap:2px;text-decoration:none;background:var(--sea);color:#fff;border-radius:8px;padding:12px 16px}
-.btn b{font:700 18px var(--f-display)}.btn span{font-size:14px;opacity:.85}.btn:hover{filter:brightness(1.1)}
-.btn.alt{background:var(--surface);color:var(--sea);border:1px solid var(--sea)}
-.site-nav{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 15px var(--f-body);border-bottom:1px solid var(--line);padding-bottom:10px;margin-top:-12px}
-.site-nav a{text-decoration:none;color:var(--muted)}.site-nav a:hover{color:var(--ink)}
-.site-nav a[aria-current="page"]{color:var(--ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--bronze)}
-@media (max-width:480px){h1{font-size:30px}td.id{white-space:normal}}
-</style></head><body><main class="wrap">
-<nav class="site-nav" aria-label="Разделы"><a href="./" aria-current="page">Обзор</a><a href="difficulty.html">Сложность</a><a href="chronicle.html">Хроника античности</a></nav>
-<header><span class="ver">версия 2.20.3 · альфа</span><h1>Mare Nostrum</h1>
-<p class="lead">Мод для Civilization VII: историческая карта Средиземноморья и Древний мир — новые нации, лидеры, морская система, события и своя сложность. Каждая часть — отдельный мод, их можно включать по одному.</p></header>
-<div class="facts"><div class="fact"><b>30</b><span>модов в сборке</span></div><div class="fact"><b>15</b><span>новых наций</span></div><div class="fact"><b>20</b><span>держав с историческим стартом</span></div><div class="fact"><b>×8</b><span>самая медленная скорость (Марафон+++)</span></div></div>
-<section class="card" id="download"><h2>Скачать <span class="n">версия 2.20.3</span></h2><div class="dl">
-<a class="btn" href="https://github.com/YanM00re/mare-nostrum-site/releases/download/v2.20.3/MareNostrum-2.20.3-alpha.zip"><b>Полная сборка</b><span>карта и все 30 модов</span></a>
-<a class="btn alt" href="https://github.com/YanM00re/mare-nostrum-site/releases/download/v2.20.3/MareNostrum-Nations-NoMap-2.20.3-alpha.zip"><b>Nations без карты</b><span>нации, лидеры, корабли, юниты</span></a>
-<a class="btn alt" href="https://github.com/YanM00re/mare-nostrum-site/releases/download/v2.20.3/MareNostrum-Difficulty-2.20.3-alpha.zip"><b>Только сложность</b><span>работает на любой карте</span></a>
-</div></section>
-<section class="card"><h2>Что нового в 2.20.3</h2><ul><li>Уникальные юниты больше не доступны с первого хода. Каждый открывается вместе с юнитом, которого он заменяет, как у наций самой игры: катафракты, гетайры, аспеты, кимвры, скифская конница, боевые слоны — с «Обработкой железа» (вместе со всадником), колесницы и нумидийские наездники — с «Колесом», конные лучники, копейщики и лучники наций — с «Обработкой бронзы», пельтасты и пращники — с «Животноводством», галеры наций — с «Мореходством», квинквиремы Рима и Карфагена — с «Навигацией». Заменители воина (велиты, разбойники, склавины, пельтасты Фракии, цетраты) остаются с начала.</li><li>Обоз — после полководца: открывается культурой «Тактика» (полководец — «Дисциплиной»).</li><li>Иллирийские разбойники берут в плен только мирных: поселенцев, торговцев и переселенцев. Захват разбитых военных перешёл к римской квинквиреме с корвусом: корабль, побеждённый ею в ближнем бою, берётся на абордаж и переходит к Риму. Карфаген бьёт издали, Рим ищет сближения.</li></ul></section>
-<section class="card"><h2>Карта <span class="n">1</span></h2><div class="tbl"><table><tr><td class="id">mare-nostrum-map</td><td>карта «Mare Nostrum: Древний мир» в двух вариантах: «все лидеры» и «только античные» (работает сама по себе)</td></tr></table></div></section><section class="card"><h2>Нации <span class="n">15</span></h2><div class="tbl"><table><tr><td class="id">mn-civ-hittites</td><td>Хетты и Суппилулиума I</td></tr><tr><td class="id">mn-civ-scythians</td><td>Скифы и Атей</td></tr><tr><td class="id">mn-civ-parthia</td><td>Парфия и Митридат I</td></tr><tr><td class="id">mn-civ-britons</td><td>Бритты и Боудикка</td></tr><tr><td class="id">mn-civ-macedon</td><td>Македония и Филипп II (столица Пелла)</td></tr><tr><td class="id">mn-civ-germans</td><td>Германцы и Арминий (север и восток от Галлии)</td></tr><tr><td class="id">mn-civ-numidia</td><td>Нумидия и Массинисса (Цирта)</td></tr><tr><td class="id">mn-civ-illyria</td><td>Иллирийцы и Теута (Скодра)</td></tr><tr><td class="id">mn-civ-dacia</td><td>Даки и Децебал (Сармизегетуса)</td></tr><tr><td class="id">mn-civ-armenia</td><td>Армения и Тигран II Великий (Артаксата)</td></tr><tr><td class="id">mn-civ-cyrenaica</td><td>Киренаика и Береника II (Кирена) — между Египтом и Карфагеном</td></tr><tr><td class="id">mn-civ-slavs</td><td>Ранние славяне и Самослав (Зимно) — Восточная Европа</td></tr><tr><td class="id">mn-civ-pontus</td><td>Понт и Митридат VI Евпатор (Синопа)</td></tr><tr><td class="id">mn-civ-thrace</td><td>Фракия (Одрисское царство) и Ситалк (Севтополь) <span class="tag">новое</span></td></tr><tr><td class="id">mn-civ-iberia</td><td>Иберия (Тартесс) и Аргантоний (Тартесс/Онуба) <span class="tag">новое</span></td></tr></table></div></section><section class="card"><h2>Лидеры <span class="n">5</span></h2><div class="tbl"><table><tr><td class="id">mn-leader-hannibal</td><td>лидер Ганнибал Барка (для Карфагена)</td></tr><tr><td class="id">mn-leader-vercingetorix</td><td>лидер Верцингеториг (для Галлии)</td></tr><tr><td class="id">mn-leader-hammurabi</td><td>лидер Хаммурапи (для Вавилона)</td></tr><tr><td class="id">mn-leader-plato</td><td>лидер Платон (для Греции)</td></tr><tr><td class="id">mn-leader-leonidas</td><td>лидер Леонид I (для Греции, Спарта)</td></tr></table></div></section><section class="card"><h2>Системы и правила <span class="n">9</span></h2><div class="tbl"><table><tr><td class="id">mn-sea-rules</td><td>морская система — галеры у берега, технологии «Дальние плавания» и «Периплы», штормы, флотоводцы</td></tr><tr><td class="id">mn-events</td><td>22 случайных события Древности с выбором решения</td></tr><tr><td class="id">mn-difficulty</td><td>сложность: старт, стены, доход, агрессия, штурм, дипломатия и руины ИИ</td></tr><tr><td class="id">mn-ships</td><td>уникальные корабли морских наций и морской бонус Карфагена</td></tr><tr><td class="id">mn-ancient-leaders</td><td>на экране выбора только лидеры Древности (по желанию)</td></tr><tr><td class="id">mn-warfare</td><td>обоз (снабжение армии), истощение в дальних походах, дешёвые командиры</td></tr><tr><td class="id">mn-mercenaries</td><td>по два уникальных юнита у каждого типа городов-государств для сюзерена</td></tr><tr><td class="id">mn-units</td><td>второй уникальный юнит у 13 наций (гетайры, конные лучники, слоны, пельтасты...)</td></tr><tr><td class="id">mn-sandbox</td><td>песочница — ИИ играет за вас N ходов, открыть карту, бесплатные технологии (для тестов)</td></tr></table></div></section>
-<section class="card"><h2>Как поставить на Mac</h2><ol>
-<li>Удали из папки модов все старые папки Mare Nostrum: две версии одного мода ломают загрузку.</li>
-<li>Скопируй содержимое папки «Mare Nostrum 2.20.3» из архива в <code>~/Library/Application Support/Civilization VII/Mods/</code>. На Windows: <code>%LOCALAPPDATA%\Firaxis Games\Sid Meier's Civilization VII\Mods\</code></li>
-<li>В игре открой «Дополнения» и включи нужные моды.</li>
-<li>Новая игра → Древний мир → карта «Mare Nostrum: Древний мир».</li></ol></section>
-<section class="card"><h2>Ещё страницы</h2><ul><li><a href="difficulty.html">Настройки сложности: что делает каждая</a></li><li><a href="chronicle.html">Хроника античности: когда жила каждая нация и кого не сводить в одной партии</a></li></ul></section>
-<footer>Страница собирается из файлов проекта и обновляется вместе с модом.</footer>
-</main></body></html>
+/* Главная: наверху — что это и кнопки скачивания, ниже — что нового, карта, галерея лидеров, состав сборки, установка. */
+.hero{padding:48px 0 8px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:32px;align-items:center}
+.hero h1{font-size:clamp(52px,9vw,96px);font-weight:700;line-height:.95;margin:10px 0 16px}
+.ver{display:inline-flex;gap:8px;align-items:center;font-size:15px;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 12px 2px 8px}
+.ver::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.hero-map{margin:0;position:relative}
+.hero-map img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--line-2);box-shadow:var(--shadow)}
+.hero-map figcaption{position:absolute;left:12px;bottom:12px;font-size:14px;background:color-mix(in srgb,var(--surface) 88%,transparent);border-radius:8px;padding:2px 10px;color:var(--ink-2)}
+.dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
+.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:22px}
+.stat{border-top:2px solid var(--gold);padding:10px 2px 0}
+.stat b{display:block;font:700 34px/1.05 var(--serif-h);color:var(--ink)}
+.stat span{font-size:15px;color:var(--ink-3);line-height:1.3;display:block}
+@media (max-width:900px){.hero{grid-template-columns:1fr;gap:22px}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.dl{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.news ul{margin:10px 0 0;padding-left:20px;display:grid;gap:10px}
+.map-full{margin:0}
+.map-full img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line-2);box-shadow:var(--shadow-sm)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px;color:var(--ink-2);margin-top:10px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+.ldr{display:flex;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px;box-shadow:var(--shadow-sm);min-width:0}
+.ldr img{width:96px;height:189px;object-fit:cover;object-position:top;border-radius:10px;flex:none;background:var(--surface-2)}
+.ldr div{min-width:0;padding:4px 4px 4px 0}
+.ldr h3{font-size:25px;font-weight:700}
+.ldr .who{color:var(--accent);font-size:16px;margin:2px 0 6px}
+.ldr .who i{color:var(--ink-3)}
+.ldr p.d{font-size:16px;color:var(--ink-2);line-height:1.45}
+.gal-h{font-size:24px;margin:26px 0 12px;font-variant:small-caps;letter-spacing:.06em;color:var(--ink-2)}
+
+.mods{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:12px}
+.mods h3{font-size:24px;margin-bottom:8px}
+.mods ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.mods li{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:12px;font-size:16px;border-top:1px dotted var(--line-2);padding-top:7px}
+.mods li:first-child{border-top:0;padding-top:0}
+.mods code{background:none;padding:0;color:var(--ink-3);font-size:13px}
+@media (max-width:560px){.mods li{grid-template-columns:1fr;gap:0}}
+
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start}
+.steps li::before{content:counter(s);font:700 26px/1 var(--serif-h);color:var(--accent);border:1px solid var(--line-2);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;background:var(--surface)}
+.steps li p{padding-top:7px}
+</style>
+</head><body>
+<header class="topbar"><div class="topbar-in"><a class="brand" href="./">Mare Nostrum</a><nav class="tabs" aria-label="Разделы"><a href="./" aria-current="page">Обзор</a><a href="difficulty.html">Сложность</a><a href="chronicle.html">Хроника античности</a></nav><button class="theme" id="themeBtn" type="button">Тема: авто</button></div></header>
+
+<main class="container">
+<section class="hero">
+  <div>
+    <span class="ver">версия 2.20.3 · альфа</span>
+    <h1>Mare Nostrum</h1>
+    <p class="lede">Древний мир от Британии до Персиды на одной исторической карте для Civilization VII. Одна эпоха и очень долгая партия: пятнадцать новых держав, восемь наций игры, античные народы на своих местах, настоящие горы, реки и проливы.</p>
+  </div>
+  <figure class="hero-map"><img src="img/map.jpg" alt="Карта Mare Nostrum: Средиземноморье от Британии до Персии" width="1544" height="923"><figcaption>Карта 128 × 88 клеток</figcaption></figure>
+</section>
+
+<div class="dl" id="download">
+  <a class="btn-dl primary" href="https://github.com/YanM00re/mare-nostrum-site/releases/download/v2.20.3/MareNostrum-2.20.3-alpha.zip"><b>Скачать полную сборку</b><span>карта и все 30 модов · ~85 МБ</span></a>
+  <a class="btn-dl" href="https://github.com/YanM00re/mare-nostrum-site/releases/download/v2.20.3/MareNostrum-Nations-NoMap-2.20.3-alpha.zip"><b>Nations без карты</b><span>нации, лидеры, корабли, юниты</span></a>
+  <a class="btn-dl" href="https://github.com/YanM00re/mare-nostrum-site/releases/download/v2.20.3/MareNostrum-Difficulty-2.20.3-alpha.zip"><b>Только сложность</b><span>мод сложности для любой карты</span></a>
+</div>
+
+<div class="stats">
+  <div class="stat"><b>30</b><span>модов в сборке</span></div>
+  <div class="stat"><b>15</b><span>новых наций</span></div>
+  <div class="stat"><b>20</b><span>лидеров с портретами</span></div>
+  <div class="stat"><b>146</b><span>античных народов на карте</span></div>
+  <div class="stat"><b>22</b><span>случайные истории</span></div>
+  <div class="stat"><b>×8</b><span>самая долгая скорость</span></div>
+</div>
+
+<section class="sec news">
+  <div class="sec-h"><h2>Что нового в 2.20.3</h2></div>
+  <div class="panel-card"><ul>
+    <li>Уникальные юниты больше не доступны с первого хода. Каждый открывается вместе с юнитом, которого он заменяет, как у наций самой игры: катафракты, гетайры, аспеты, кимвры, скифская конница, боевые слоны — с «Обработкой железа» (вместе со всадником), колесницы и нумидийские наездники — с «Колесом», конные лучники, копейщики и лучники наций — с «Обработкой бронзы», пельтасты и пращники — с «Животноводством», галеры наций — с «Мореходством», квинквиремы Рима и Карфагена — с «Навигацией». Заменители воина (велиты, разбойники, склавины, пельтасты Фракии, цетраты) остаются с начала.</li>
+    <li>Обоз — после полководца: открывается культурой «Тактика» (полководец — «Дисциплиной»).</li>
+    <li>Иллирийские разбойники берут в плен только мирных: поселенцев, торговцев и переселенцев. Захват разбитых военных перешёл к римской квинквиреме с корвусом: корабль, побеждённый ею в ближнем бою, берётся на абордаж и переходит к Риму. Карфаген бьёт издали, Рим ищет сближения.</li>
+  </ul></div>
+</section>
+
+<section class="sec" id="map">
+  <div class="sec-h"><h2>Карта</h2><span class="n">«Mare Nostrum: Древний мир»</span></div>
+  <p class="lede">Рельеф по реальным высотам, реки с античными именами, хребты с проходимыми перевалами и около двухсот названий областей и морей в подсказке клетки. Два варианта: «все лидеры» и «только античные».</p>
+  <figure class="map-full"><a href="img/map.jpg"><img src="img/map.jpg" alt="Карта Mare Nostrum целиком" width="1544" height="923" loading="lazy"></a></figure>
+  <div class="legend">
+    <span><i style="background:#1d3f6b"></i>открытое море</span><span><i style="background:#2f6aa6"></i>прибрежные воды</span><span><i style="background:#4f7a3a"></i>леса</span><span><i style="background:#f2f2f2;border:1px solid var(--line-2)"></i>снежные вершины</span><span><i style="background:#d33"></i>столицы держав</span><span><i style="background:#e6c84a;border-radius:50%"></i>защищённые народы</span><span><i style="background:#fff;border:1px solid var(--line-2);border-radius:50%"></i>остальные народы</span><span>★ чудеса природы</span>
+  </div>
+</section>
+
+<section class="sec" id="nations">
+  <div class="sec-h"><h2>Нации и лидеры</h2><span class="n">15 новых наций и 5 лидеров для наций игры</span></div>
+  <p class="lede">Каждая нация — отдельный мод: своя способность, уникальный юнит, ветка культуры, лидер с портретом и реплики в дипломатии. Работают и на карте Mare Nostrum, и на любой другой.</p>
+  <div class="gal">
+    <article class="ldr"><img src="img/leaders/suppiluliuma.jpg" alt="Суппилулиума I" width="170" height="335" loading="lazy"><div><h3>Хетты</h3><p class="who">Суппилулиума I · <i>Великий царь</i></p><p class="d">Держава бронзового века в сердце Анатолии: тяжёлые колесницы, сеть вассальных договоров и «тысяча богов страны Хатти».</p></div></article>
+    <article class="ldr"><img src="img/leaders/ateas.jpg" alt="Атей" width="170" height="335" loading="lazy"><div><h3>Скифы</h3><p class="who">Атей · <i>Царь всех скифов</i></p><p class="d">Кочевники Великой степи от Дуная до Дона: конные лучники, золото курганов и звериный стиль.</p></div></article>
+    <article class="ldr"><img src="img/leaders/sitalces.jpg" alt="Ситалк" width="170" height="335" loading="lazy"><div><h3>Фракия</h3><p class="who">Ситалк · <i>Союз племён</i></p><p class="d">Горы и равнины между Дунаем и Эгейским морем. Золото Пангея, пельтасты и конница одрисов, что держит в страхе греческие города побережья.</p></div></article>
+    <article class="ldr"><img src="img/leaders/arganthonios.jpg" alt="Аргантоний" width="170" height="335" loading="lazy"><div><h3>Иберия</h3><p class="who">Аргантоний · <i>Царь-долгожитель</i></p><p class="d">Серебряный край на западном конце моря. Тартесс и турдетаны: рудники, гавани за Столпами и воины с фалькатой.</p></div></article>
+    <article class="ldr"><img src="img/leaders/philip2.jpg" alt="Филипп II" width="170" height="335" loading="lazy"><div><h3>Македония</h3><p class="who">Филипп II · <i>Царь и дипломат</i></p><p class="d">Горное царство на севере Эллады, где фаланга с сариссами и конница гетайров покорили Грецию и дошли до Инда.</p></div></article>
+    <article class="ldr"><img src="img/leaders/teuta.jpg" alt="Теута" width="170" height="335" loading="lazy"><div><h3>Иллирийцы</h3><p class="who">Теута · <i>Царица Адриатики</i></p><p class="d">Горные племена и морские разбойники восточного берега Адриатики: царство Ардиеев с лёгкими лембами и каменными городищами.</p></div></article>
+    <article class="ldr"><img src="img/leaders/berenice.jpg" alt="Береника II" width="170" height="335" loading="lazy"><div><h3>Киренаика</h3><p class="who">Береника II · <i>Царица Кирены</i></p><p class="d">Греческий Пентаполь на африканском берегу. Сильфий, кони и философы между Египтом и Карфагеном.</p></div></article>
+    <article class="ldr"><img src="img/leaders/masinissa.jpg" alt="Массинисса" width="170" height="335" loading="lazy"><div><h3>Нумидия</h3><p class="who">Массинисса · <i>Царь Нумидии</i></p><p class="d">Царство лёгкой конницы между Карфагеном и пустыней: нумидийские всадники решали исходы битв от Сицилии до Испании.</p></div></article>
+    <article class="ldr"><img src="img/leaders/mithridates1.jpg" alt="Митридат I Великий" width="170" height="335" loading="lazy"><div><h3>Парфия</h3><p class="who">Митридат I Великий · <i>Царь царей</i></p><p class="d">Держава Аршакидов от Евфрата до Окса: тяжёлые катафракты, конные лучники и Шёлковый путь.</p></div></article>
+    <article class="ldr"><img src="img/leaders/mithridates6.jpg" alt="Митридат VI Евпатор" width="170" height="335" loading="lazy"><div><h3>Понт</h3><p class="who">Митридат VI Евпатор · <i>Враг Рима</i></p><p class="d">Эллинистическое царство на южном берегу Чёрного моря, наследник персидской знати и греческих городов. Флот, железо и последний великий вызов Риму.</p></div></article>
+    <article class="ldr"><img src="img/leaders/tigranes.jpg" alt="Тигран II Великий" width="170" height="335" loading="lazy"><div><h3>Армения</h3><p class="who">Тигран II Великий · <i>Царь царей</i></p><p class="d">Нагорье между тремя морями. Армянская тяжёлая конница, караваны Артаксаты и титул царя царей.</p></div></article>
+    <article class="ldr"><img src="img/leaders/decebalus.jpg" alt="Децебал" width="170" height="335" loading="lazy"><div><h3>Даки</h3><p class="who">Децебал · <i>Царь Дакии</i></p><p class="d">Горное царство в Карпатах: крепости на вершинах, золото рудников, жрецы Залмоксиса и двуручный серп, пробивавший римские шлемы.</p></div></article>
+    <article class="ldr"><img src="img/leaders/boudica.jpg" alt="Боудикка" width="170" height="335" loading="lazy"><div><h3>Бритты</h3><p class="who">Боудикка · <i>Царица иценов</i></p><p class="d">Кельтские племена Британии: боевые колесницы, друиды, городища на холмах и олово Корнуолла, которое знал весь Средиземноморский мир.</p></div></article>
+    <article class="ldr"><img src="img/leaders/arminius.jpg" alt="Арминий" width="170" height="335" loading="lazy"><div><h3>Германцы</h3><p class="who">Арминий · <i>Освободитель Германии</i></p><p class="d">Свободные племена за Рейном: херуски, хатты и бруктеры. Тинг, дружина и лес, в котором погибли легионы Вара.</p></div></article>
+    <article class="ldr"><img src="img/leaders/samo.jpg" alt="Самослав" width="170" height="335" loading="lazy"><div><h3>Ранние славяне</h3><p class="who">Самослав · <i>Король вендов</i></p><p class="d">Лесные реки Восточной Европы. Склавины, анты и венеды: поселения растут быстро, а воины исчезают в чаще и бьют из засады.</p></div></article>
+  </div>
+  <h3 class="gal-h">Лидеры для наций игры</h3>
+  <div class="gal">
+    <article class="ldr"><img src="img/leaders/hannibal.jpg" alt="Ганнибал Барка" width="170" height="335" loading="lazy"><div><h3>Ганнибал Барка</h3><p class="who">Карфаген · <i>Клятва Гамилькара</i></p><p class="d">Полководец Карфагена, перешедший Альпы со слонами. Сильная армия наёмников и великий генерал, который сам приходит к вам по ветке культуры Карфагена.</p></div></article>
+    <article class="ldr"><img src="img/leaders/vercingetorix.jpg" alt="Верцингеториг" width="170" height="335" loading="lazy"><div><h3>Верцингеториг</h3><p class="who">Галлы · <i>Вождь всех галлов</i></p><p class="d">Вождь арвернов, объединивший племена Галлии против Цезаря. Оборона на холмах и в лесах, сила от союзных городов-государств.</p></div></article>
+    <article class="ldr"><img src="img/leaders/hammurabi.jpg" alt="Хаммурапи" width="170" height="335" loading="lazy"><div><h3>Хаммурапи</h3><p class="who">Вавилон · <i>Царь справедливости</i></p><p class="d">Царь Вавилона, объединивший Двуречье договорами и войнами и давший ему законы, высеченные в камне. Законодатель и строитель каналов.</p></div></article>
+    <article class="ldr"><img src="img/leaders/plato.jpg" alt="Платон" width="170" height="335" loading="lazy"><div><h3>Платон</h3><p class="who">Греция · <i>Философ-царь</i></p><p class="d">Афинский философ, ученик Сократа и основатель Академии. Он описал идеальное государство, которым должны править мудрецы.</p></div></article>
+    <article class="ldr"><img src="img/leaders/leonidas.jpg" alt="Леонид I" width="170" height="335" loading="lazy"><div><h3>Леонид I</h3><p class="who">Греция, Спарта · <i>Фермопилы</i></p><p class="d">Царь Спарты, который с тремя сотнями спартанцев и союзниками держал Фермопильский проход против войска Ксеркса.</p></div></article>
+  </div>
+</section>
+
+<section class="sec" id="mods">
+  <div class="sec-h"><h2>Состав сборки</h2><span class="n">30 модов, каждый включается отдельно</span></div>
+  <div class="mods">
+    <div class="panel-card"><h3>Карта и системы</h3><ul>
+      <li><code>mare-nostrum-map</code><span>карта «Mare Nostrum: Древний мир»: «все лидеры» и «только античные»; работает сама по себе</span></li>
+      <li><code>mn-sea-rules</code><span>морская система: галеры у берега, «Дальние плавания» и «Периплы», штормы, флотоводцы</span></li>
+      <li><code>mn-events</code><span>22 случайных события Древности с выбором решения</span></li>
+      <li><code>mn-difficulty</code><span>сложность: старт, стены, доход, агрессия, войны, штурм, дипломатия ИИ — <a href="difficulty.html">подробно</a></span></li>
+      <li><code>mn-ships</code><span>уникальные корабли морских наций и морской бонус Карфагена</span></li>
+      <li><code>mn-warfare</code><span>обоз, истощение в дальних походах, дешёвые командиры</span></li>
+      <li><code>mn-mercenaries</code><span>по два уникальных юнита у каждого типа городов-государств для сюзерена</span></li>
+      <li><code>mn-units</code><span>второй уникальный юнит у 13 наций: гетайры, конные лучники, слоны, пельтасты…</span></li>
+      <li><code>mn-ancient-leaders</code><span>на экране выбора только лидеры Древности (по желанию)</span></li>
+      <li><code>mn-sandbox</code><span>песочница: ИИ играет за вас N ходов, открыть карту, бесплатные технологии</span></li>
+    </ul></div>
+    <div class="panel-card"><h3>Нации и лидеры</h3><ul>
+      <li><code>mn-civ-*</code><span>15 наций: хетты, скифы, Фракия, Иберия, Македония, иллирийцы, Киренаика, Нумидия, Парфия, Понт, Армения, даки, бритты, германцы, ранние славяне</span></li>
+      <li><code>mn-leader-hannibal</code><span>Ганнибал Барка для Карфагена</span></li>
+      <li><code>mn-leader-vercingetorix</code><span>Верцингеториг для Галлии</span></li>
+      <li><code>mn-leader-hammurabi</code><span>Хаммурапи для Вавилона</span></li>
+      <li><code>mn-leader-plato</code><span>Платон для Греции</span></li>
+      <li><code>mn-leader-leonidas</code><span>Леонид I для Греции (Спарта)</span></li>
+    </ul><p class="muted small" style="margin-top:12px">Какие нации сосуществовали и кого не стоит сводить в одной партии — в <a href="chronicle.html">хронике античности</a>.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="install">
+  <div class="sec-h"><h2>Как поставить</h2></div>
+  <div class="panel-card"><ol class="steps">
+    <li><p>Удалите из папки модов все старые папки Mare Nostrum: две версии одного мода ломают загрузку.</p></li>
+    <li><p>Скопируйте содержимое папки «Mare Nostrum 2.20.3» из архива в <code>~/Library/Application Support/Civilization VII/Mods/</code>. На Windows: <code>%LOCALAPPDATA%\Firaxis Games\Sid Meier's Civilization VII\Mods\</code></p></li>
+    <li><p>В игре откройте «Дополнения» и включите нужные моды.</p></li>
+    <li><p>Новая игра → Древний мир → карта «Mare Nostrum: Древний мир».</p></li>
+  </ol></div>
+</section>
+</main>
+
+<footer class="site-foot"><div class="in"><b>Mare Nostrum</b><span>версия 2.20.3</span><nav><a href="./">Обзор</a><a href="difficulty.html">Сложность</a><a href="chronicle.html">Хроника античности</a></nav><p>Любительский мод для Sid Meier's Civilization VII; не связан с Firaxis Games и 2K.</p></div></footer>
+<script src="site.js"></script>
+</body></html>

@@ -1,70 +1,46 @@
 <!DOCTYPE html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Mare Nostrum: Сложность</title>
+<title>Сложность — Mare Nostrum</title>
 <meta name="description" content="Все настройки мода сложности Mare Nostrum 2.20.3: что делает каждая и чем отличается от обычной игры.">
+<script>try{var t=localStorage.getItem("mn-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="site.css">
 <style>
-/* Layout: one reading column with wide comparison tables; bronze-and-sea identity shared with index.html, iron red for war settings. */
-:root{
-  --bg:#eef1f2; --surface:#ffffff; --ink:#16232c; --muted:#56666f; --line:#cfd8dc;
-  --sea:#2a5f80; --bronze:#9a6a22; --bronze-soft:#f1e4cc; --iron:#a33a26; --iron-soft:#f6e1dc;
-  --f-display:"Alegreya SC", Georgia, "Times New Roman", serif;
-  --f-body:"Alegreya Sans", "Segoe UI", system-ui, sans-serif;
-  --f-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
-  color-scheme:light;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f171c; --surface:#16222a; --ink:#e3eaee; --muted:#97a8b1; --line:#2a3a44;
-  --sea:#6fb0d6; --bronze:#d9a755; --bronze-soft:#33291a; --iron:#ee8a72; --iron-soft:#3a201a; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0f171c; --surface:#16222a; --ink:#e3eaee; --muted:#97a8b1; --line:#2a3a44;
-  --sea:#6fb0d6; --bronze:#d9a755; --bronze-soft:#33291a; --iron:#ee8a72; --iron-soft:#3a201a; color-scheme:dark}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55}
-.wrap{max-width:1080px;margin:0 auto;padding:20px 16px 64px;display:grid;grid-template-columns:minmax(0,1fr);gap:38px}
-h1,h2,h3{font-family:var(--f-display);font-weight:700;text-wrap:balance;margin:0;line-height:1.15}
-h1{font-size:clamp(2.1rem,5vw,3.3rem)} h2{font-size:1.55rem} h3{font-size:1.1rem}
-p{margin:0} ul,ol{margin:0;padding-left:1.2em;display:grid;gap:5px}
-a{color:var(--sea)}
-.site-nav{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 15px var(--f-body);border-bottom:1px solid var(--line);padding-bottom:10px}
-.site-nav a{text-decoration:none;color:var(--muted)}.site-nav a:hover{color:var(--ink)}
-.site-nav a[aria-current="page"]{color:var(--ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--bronze)}
-.kicker,.lab{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze)}
-.lede{max-width:70ch;color:var(--muted);font-size:1.1rem}
-.muted{color:var(--muted)} .small{font-size:.86rem}
-header{display:grid;gap:14px}
-section{display:grid;gap:16px;border-top:1px solid var(--line);padding-top:24px;min-width:0}
-section > p, section > ul, section > ol{max-width:76ch}
-.preset{background:var(--iron-soft);border:1px solid var(--iron);border-radius:8px;padding:16px 18px;display:grid;gap:10px}
-.preset h2{color:var(--iron)}
-.pills{display:flex;flex-wrap:wrap;gap:8px}
-.pill{font-family:var(--f-mono);font-size:.8rem;border:1px solid var(--iron);color:var(--iron);background:var(--surface);border-radius:999px;padding:3px 11px}
-.pill.plain{border-color:var(--line);color:var(--ink)}
-.note{background:var(--bronze-soft);border-left:3px solid var(--bronze);padding:12px 16px;border-radius:0 6px 6px 0;max-width:80ch}
-.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
-table{border-collapse:collapse;width:100%;font-size:.93rem}
-th,td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
-th{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--bg)}
-tr:last-child td{border-bottom:none}
-td.n{font-family:var(--f-mono);font-size:.84rem;white-space:nowrap;font-variant-numeric:tabular-nums}
-td.hot{color:var(--iron);font-weight:600}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:grid;gap:8px;align-content:start;min-width:0}
-.card.no{border-style:dashed}
-code{font-family:var(--f-mono);font-size:.82em;background:var(--bronze-soft);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+/* Сложность: наверху — что включено по умолчанию и рекомендуемый набор, ниже — все настройки и таблицы чисел. */
+.dif{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+.dif > header{padding:48px 0 0;display:grid;gap:12px}
+.dif > header h1{font-size:clamp(44px,7vw,76px);font-weight:700;line-height:1}
+.dif section{padding-top:52px;display:grid;gap:14px;min-width:0}
+.dif section > h2{font-size:clamp(28px,3.6vw,36px)}
+.dif section > p{max-width:76ch}
+.top2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:14px;margin-top:28px}
+@media (max-width:860px){.top2{grid-template-columns:1fr}}
+.note{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow-sm)}
+.note strong{font-family:var(--serif-h);font-size:22px;display:block;margin-bottom:4px}
+.preset{background:color-mix(in srgb,var(--accent) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:14px;padding:16px 18px;display:grid;gap:10px;box-shadow:var(--shadow-sm)}
+.preset h2{color:var(--accent);font-size:30px}
+.lab{font-variant:small-caps;letter-spacing:.12em;font-size:15px;color:var(--accent)}
+.pills{display:flex;flex-wrap:wrap;gap:7px}
+.pill{font-size:15px;border:1px solid color-mix(in srgb,var(--accent) 55%,transparent);color:var(--accent);background:var(--surface);border-radius:999px;padding:2px 12px}
+.pill.plain{border-color:var(--line-2);color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:6px;align-content:start;min-width:0;box-shadow:var(--shadow-sm)}
+.card h3{font-size:24px}
+.card.no{border-style:dashed;box-shadow:none}
+.dif ol{margin:0;padding-left:1.3em;display:grid;gap:6px}
 </style>
-</head><body><main class="wrap">
-<nav class="site-nav" aria-label="Разделы"><a href="./">Обзор</a><a href="difficulty.html" aria-current="page">Сложность</a><a href="chronicle.html">Хроника античности</a></nav>
-
+</head><body>
+<header class="topbar"><div class="topbar-in"><a class="brand" href="./">Mare Nostrum</a><nav class="tabs" aria-label="Разделы"><a href="./">Обзор</a><a href="difficulty.html" aria-current="page">Сложность</a><a href="chronicle.html">Хроника античности</a></nav><button class="theme" id="themeBtn" type="button">Тема: авто</button></div></header>
+<main class="container dif">
 <header>
   <p class="kicker">Mare Nostrum · версия 2.20.3 · работает на любой карте</p>
   <h1>Mare Nostrum: Сложность</h1>
   <p class="lede">Мод для игрока, которому стало легко на Божестве. ИИ получает сильный старт, стены и надбавку к доходу, раньше и чаще воюет, штурмует без полководца и борется за города-государства. Каждая часть — отдельная настройка в «Дополнительных параметрах» окна создания игры.</p>
 </header>
 
-<div class="note"><strong>Мод включён — часть настроек уже работает.</strong> По умолчанию стоят: старт «Вызов», стены сразу у ИИ, высокая агрессия, войны «чаще и раньше», вековые враги, активная дипломатия и штурм без генерала. Чтобы получить обычную игру, переключите их на «как в игре», «обычный» или «выключено».</div>
+<div class="top2"><div class="note"><strong>Мод включён — часть настроек уже работает.</strong> По умолчанию стоят: старт «Вызов», стены сразу у ИИ, высокая агрессия, войны «чаще и раньше», вековые враги, активная дипломатия и штурм без генерала. Чтобы получить обычную игру, переключите их на «как в игре», «обычный» или «выключено».</div>
 
 <div class="preset">
   <p class="lab" style="color:var(--iron)">Рекомендуемый набор для опытного игрока</p>
@@ -74,7 +50,7 @@ code{font-family:var(--f-mono);font-size:.82em;background:var(--bronze-soft);pad
     <span class="pill">Наука и золото ИИ: +30%</span><span class="pill">Агрессия: высокая</span><span class="pill">Войны: чаще и раньше</span><span class="pill">Дипломатия: активная</span>
   </div>
   <p class="small">Бонусы мода добавляются к бонусам Божества: там ИИ уже получает +80% золота и прибавку к науке. Если и этого мало — агрессия «беспощадная», войны «постоянно» и наука/золото +50%.</p>
-</div>
+</div></div>
 
 <section>
   <h2>Настройки</h2>
@@ -212,4 +188,7 @@ code{font-family:var(--f-mono);font-size:.82em;background:var(--bronze-soft);pad
   </ol>
   <p class="muted small">Мод работает и без модпака Mare Nostrum, и вместе с ним. Если что-то пойдёт не так, пригодятся Database.log, Modding.log и Scripting.log из папки Logs игры.</p>
 </section>
-</main></body></html>
+</main>
+<footer class="site-foot"><div class="in"><b>Mare Nostrum</b><span>версия 2.20.3</span><nav><a href="./">Обзор</a><a href="difficulty.html">Сложность</a><a href="chronicle.html">Хроника античности</a></nav><p>Любительский мод для Sid Meier's Civilization VII; не связан с Firaxis Games и 2K.</p></div></footer>
+<script src="site.js"></script>
+</body></html>
